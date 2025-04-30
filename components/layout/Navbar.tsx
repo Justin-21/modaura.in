@@ -8,13 +8,15 @@ import { LiaShoppingBagSolid } from "react-icons/lia";
 import MobileNav from "./MobileNav";
 
 const Navbar = () => {
-  const [width, setWidth] = useState(window.innerWidth);
+  const [width, setWidth] = useState(0);
 
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);
+    setWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  }, [width]);
+
   return width > 768 ? (
     <div className="w-full font-satoshi bg-ivory">
       <div className="bg-black-1 py-2 text-center text-ivory">
