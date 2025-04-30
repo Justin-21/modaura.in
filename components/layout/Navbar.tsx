@@ -1,19 +1,30 @@
+"use client";
+
 import logo from "@/public/modauraLogoDark.png";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import { HiUser } from "react-icons/hi";
 import { LiaShoppingBagSolid } from "react-icons/lia";
+import MobileNav from "./MobileNav";
 
 const Navbar = () => {
-  return (
-    <div className="w-full font-satoshi">
+  const [width, setWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  return width > 768 ? (
+    <div className="w-full font-satoshi bg-ivory">
       <div className="bg-black-1 py-2 text-center text-ivory">
         New Offers Of The Day!!!
       </div>
 
-      <div className="flex justify-center items-center px-10 py-4">
+      <div className="flex justify-center items-center px-12 py-4">
         <div className="w-1/3">
           <ul className="flex space-x-5 text-black-1 capitalize *:cursor-pointer">
-            <li>collections</li>
+            <li>categories</li>
             <li>latest</li>
             <li>popular</li>
           </ul>
@@ -39,6 +50,8 @@ const Navbar = () => {
         </div>
       </div>
     </div>
+  ) : (
+    <MobileNav />
   );
 };
 

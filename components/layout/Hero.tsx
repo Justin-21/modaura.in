@@ -32,7 +32,7 @@ const Hero = () => {
 
   return (
     <>
-      <div className="w-screen flex flex-col items-center justify-center px-10">
+      <div className="w-full flex flex-col items-center justify-center">
         <Carousel
           setApi={setApi}
           plugins={[
@@ -46,7 +46,7 @@ const Hero = () => {
             loop: true,
             align: "start",
           }}
-          className="w-full h-[500px] bg-yellow-300 rounded-2xl overflow-hidden"
+          className="w-full max-sm:aspect-square lg:h-[500px] bg-yellow-300 rounded-2xl overflow-hidden"
         >
           <CarouselContent className="w-full h-full -ml-0 *:flex *:items-center *:justify-center">
             <CarouselItem className="basis-full pl-0">
@@ -71,7 +71,7 @@ const Hero = () => {
           </CarouselContent>
         </Carousel>
 
-        <div className="flex gap-2 p-5">
+        <div className="flex gap-2 py-3 lg:pt-5">
           {Array.from({ length: count }).map((_, index) => (
             <div
               key={index}
