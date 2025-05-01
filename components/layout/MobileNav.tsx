@@ -63,15 +63,7 @@ const MobileNav = () => {
                   Categories
                 </DrawerTitle>
                 <Separator />
-                <DrawerTitle
-                  onClick={() => {
-                    setOpen(false);
-                    ScrollIntoView("latest-section");
-                  }}
-                >
-                  Latest
-                </DrawerTitle>
-                <Separator />
+
                 <DrawerTitle
                   onClick={() => {
                     setOpen(false);
@@ -79,6 +71,16 @@ const MobileNav = () => {
                   }}
                 >
                   Popular
+                </DrawerTitle>
+                <Separator />
+
+                <DrawerTitle
+                  onClick={() => {
+                    setOpen(false);
+                    ScrollIntoView("latest-section");
+                  }}
+                >
+                  Latest
                 </DrawerTitle>
                 <Separator />
               </DrawerHeader>

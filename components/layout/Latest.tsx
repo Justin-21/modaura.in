@@ -5,15 +5,19 @@ import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 
 const Latest = () => {
   return (
-    <section>
-      <div id="latest-section" className="w-full flex flex-col space-y-3 lg:space-y-8">
-        <h3 className="font-bold font-urbanist text-xl lg:text-4xl text-center">
+    <section className="w-full">
+      <div
+        id="latest-section"
+        className="w-full flex flex-col space-y-3 lg:space-y-8"
+      >
+        <h3 className="font-bold text-xl lg:text-4xl text-center">
           Latest Collection
         </h3>
         <div className="lg:w-full flex gap-3">
           <Carousel
             opts={{
               align: "start",
+              dragFree: true,
             }}
             className="w-full overflow-hidden"
           >

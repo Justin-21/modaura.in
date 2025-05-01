@@ -3,11 +3,11 @@ import React from "react";
 const Footer = () => {
   return (
     <section>
-      <div className="w-screen h-full bg-beige flex flex-col items-start justify-start mt-16 px-4 lg:px-12 pt-4 lg:pt-8 lg:pb-24 font-urbanist space-y-10">
-        <div className="flex w-full items-start justify-between">
+      <div className="w-screen h-full bg-beige flex flex-col items-start justify-start mt-16 px-4 lg:px-12 pt-4 lg:pt-8 pb-16 lg:pb-24 font-urbanist tracking-wide space-y-10">
+        <div className="flex flex-col lg:flex-row w-full items-start lg:justify-between space-y-4">
           <div>
-            <h4 className="text-xl uppercase tracking-wide">All Jewellery</h4>
-            <ul>
+            <h4 className="text-lg lg:text-xl uppercase">All Jewellery</h4>
+            <ul className="text-sm lg:text-base">
               <li>Earrings</li>
               <li>Necklaces</li>
               <li>Bracelets</li>
@@ -18,7 +18,8 @@ const Footer = () => {
           </div>
 
           <div>
-            <ul>
+            <h4 className="text-lg lg:text-xl uppercase">Info</h4>
+            <ul className="text-sm lg:text-base">
               <li>About Us</li>
               <li>Privacy Policy</li>
               <li>Terms Of Service</li>
@@ -29,8 +30,8 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div>
-            <h4 className="text-xl uppercase tracking-wide">Contact Us</h4>
+          <div className="[&_p]:text-sm lg:[&_p]:text-base">
+            <h4 className="text-lg lg:text-xl uppercase">Contact Us</h4>
             <p>Modaura E-commerce Pvt. Ltd.</p>
             <p>support@modaura.in</p>
             <p>Whatsapp - +91 9876543210</p>
@@ -40,10 +41,8 @@ const Footer = () => {
         </div>
 
         <div>
-          <h4 className="text-xl uppercase tracking-wide">
-            Join Our Community
-          </h4>
-          <ul className="flex space-x-8">
+          <h4 className="text-lg lg:text-xl uppercase">Join Our Community</h4>
+          <ul className="flex flex-col lg:flex-row space-x-8 text-sm lg:text-base space-y-1 lg:space-y-0">
             <li>LinkedIn</li>
             <li>Facebook</li>
             <li>Instagram</li>
@@ -51,7 +50,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        <div>©2024, Modaura Jewellery</div>
+        <div className="text-sm lg:text-base">©2024, Modaura Jewellery</div>
       </div>
     </section>
   );

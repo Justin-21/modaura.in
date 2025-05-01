@@ -5,7 +5,7 @@ import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 
 const Necklaces = () => {
   return (
-    <section>
+    <section className="w-full">
       <div
         id="necklaces-section"
         className="w-full flex flex-col space-y-3 lg:space-y-8"
@@ -17,6 +17,7 @@ const Necklaces = () => {
           <Carousel
             opts={{
               align: "start",
+              dragFree: true,
             }}
             className="w-full overflow-hidden"
           >

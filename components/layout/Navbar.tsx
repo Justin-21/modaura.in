@@ -43,30 +43,34 @@ const Navbar = () => {
                 <p>categories</p>
                 <IoIosArrowDown />
               </span>
+
               <div className="absolute top-6 -left-3 text-center bg-ivory border px-5 py-2 rounded opacity-0 hover:opacity-100 peer-hover:opacity-100 invisible hover:visible peer-hover:visible transition-all duration-300 ease-in-out shadow-xl">
                 <ul className="space-y-1 cursor-auto *:cursor-pointer *:text-neutral-400 *:hover:text-black-1 *:font-light *:hover:font-normal *:tracking-wide">
                   <li>rings</li>
                   <Separator className="bg-neutral-500" />
-                  <li>earrings</li>
-                  <Separator className="bg-neutral-500" />
                   <li>necklaces</li>
                   <Separator className="bg-neutral-500" />
                   <li>bracelets</li>
+                  <Separator className="bg-neutral-500" />
+                  <li>earrings</li>
                 </ul>
               </div>
             </li>
-            <li
-              className="cursor-pointer"
-              onClick={() => ScrollIntoView("latest-section")}
-            >
-              latest
-            </li>
+
             <li
               className="cursor-pointer"
               onClick={() => ScrollIntoView("popular-section")}
             >
               popular
             </li>
+
+            <li
+              className="cursor-pointer"
+              onClick={() => ScrollIntoView("latest-section")}
+            >
+              latest
+            </li>
+
             <li
               className="cursor-pointer"
               onClick={() => {}}

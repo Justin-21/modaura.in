@@ -5,7 +5,7 @@ import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 
 const Popular = () => {
   return (
-    <section>
+    <section className="w-full">
       <div
         id="popular-section"
         className="w-full flex flex-col space-y-3 lg:space-y-8"
@@ -13,14 +13,15 @@ const Popular = () => {
         <h3 className="font-bold text-xl lg:text-4xl text-center">
           Popular Collection
         </h3>
-        <div className="lg:w-full flex gap-3">
+        <div className="w-full flex lg:gap-3">
           <Carousel
             opts={{
               align: "start",
+              dragFree: true,
             }}
-            className="w-full overflow-hidden"
+            className="w-full"
           >
-            <CarouselContent className="lg:w-full h-full space-x-2 lg:justify-between -ml-0">
+            <CarouselContent className="w-full h-full space-x-2 lg:justify-between -ml-0">
               {Array.from({ length: 5 }).map((_, index) => (
                 <CarouselItem
                   className="pl-0"
