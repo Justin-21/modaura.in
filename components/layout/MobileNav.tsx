@@ -29,7 +29,7 @@ const MobileNav = () => {
   };
 
   return (
-    <div className="w-full font-satoshi bg-ivory">
+    <div className="w-full font-urbanist bg-ivory">
       <div className="bg-linear-to-r from-darkTeal to-teal-500 py-2 text-center text-ivory text-xs lg:text-base">
         New Offers Of The Day!!!
       </div>
@@ -49,11 +49,11 @@ const MobileNav = () => {
             <DrawerTrigger>
               <IoIosMenu size={22} />
             </DrawerTrigger>
-            <DrawerContent className="font-satoshi bg-darkTeal text-ivory">
+            <DrawerContent className="font-urbanist bg-darkTeal text-ivory">
               <DrawerClose className="flex items-end justify-end pt-5 pr-5">
                 <IoClose size={24} />
               </DrawerClose>
-              <DrawerHeader className="font-satoshi gap-2 *:text-lg *:font-normal *:text-ivory">
+              <DrawerHeader className="font-urbanist gap-2 *:text-lg *:font-normal *:text-ivory">
                 <DrawerTitle
                   onClick={() => {
                     setOpen(false);

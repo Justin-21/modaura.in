@@ -51,7 +51,7 @@ const ProductCard = ({
 
         <div className="flex flex-col items-center justify-center">
           {/* title of the product */}
-          <h3 className="text-sm lg:text-base lg:leading-tight">
+          <h3 className="text-sm lg:text-base lg:leading-tight tracking-wide">
             {title ? title : "Product Name"}
           </h3>
           {/* cost of the product */}

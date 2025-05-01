@@ -5,9 +5,12 @@ import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 
 const Popular = () => {
   return (
-    <>
-      <div id="popular-section" className="w-full flex flex-col space-y-3 lg:space-y-8">
-        <h3 className="font-bold text-xl lg:text-3xl text-center">
+    <section>
+      <div
+        id="popular-section"
+        className="w-full flex flex-col space-y-3 lg:space-y-8"
+      >
+        <h3 className="font-bold text-xl lg:text-4xl text-center">
           Popular Collection
         </h3>
         <div className="lg:w-full flex gap-3">
@@ -37,7 +40,7 @@ const Popular = () => {
           </Carousel>
         </div>
       </div>
-    </>
+    </section>
   );
 };
 

@@ -39,7 +39,6 @@ const Hero = () => {
             Autoplay({
               delay: 3000,
               stopOnInteraction: false,
-              stopOnMouseEnter: true,
             }),
           ]}
           opts={{

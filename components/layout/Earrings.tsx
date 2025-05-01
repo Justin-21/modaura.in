@@ -3,12 +3,15 @@ import displayImage from "@/public/silver-cube-bracelet.png";
 import ProductCard from "../product/ProductCard";
 import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 
-const Latest = () => {
+const Earrings = () => {
   return (
     <section>
-      <div id="latest-section" className="w-full flex flex-col space-y-3 lg:space-y-8">
-        <h3 className="font-bold font-urbanist text-xl lg:text-4xl text-center">
-          Latest Collection
+      <div
+        id="earrings-section"
+        className="w-full flex flex-col space-y-3 lg:space-y-8"
+      >
+        <h3 className="font-bold text-xl lg:text-4xl text-center">
+          Shop For Earrings
         </h3>
         <div className="lg:w-full flex gap-3">
           <Carousel
@@ -25,7 +28,7 @@ const Latest = () => {
                 >
                   <ProductCard
                     key={index}
-                    title={"Latest " + (index + 1).toString()}
+                    title={"Silver Cube Bracelet " + (index + 1).toString()}
                     displayImage={displayImage}
                     hoverImage={hoverImage}
                     costPrice="Rs. 1999"
@@ -41,4 +44,4 @@ const Latest = () => {
   );
 };
 
-export default Latest;
+export default Earrings;
