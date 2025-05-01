@@ -24,25 +24,34 @@ const ProductCard = ({
 
   return (
     <>
-      <div className="w-fit h-fit flex flex-col items-center justify-center space-y-3">
+      <div className="w-fit h-fit flex flex-col items-center justify-center space-y-1 lg:space-y-2">
         <div
-          className="size-[150px] lg:size-[250px] 2xl:size-[280px] bg-neutral-200 rounded-md overflow-hidden flex items-center justify-center cursor-pointer transition-all duration-200 ease-in-out"
+          className="size-[150px] lg:size-[250px] 2xl:size-[280px] bg-neutral-200 rounded-md overflow-hidden flex items-center justify-center cursor-pointer transition-all duration-200 ease-in-out relative"
           onMouseEnter={() => setActive(true)}
           onMouseLeave={() => setActive(false)}
         >
           {/* image of the product */}
           <Image
-            src={!active ? displayImage : hoverImage}
+            src={displayImage}
             alt="product"
             width={300}
             height={300}
-            className="w-full object-cover"
+            className={`w-full object-cover bg-neutral-200 ${
+              active ? "opacity-0" : "opacity-100"
+            } transition-all duration-300 ease-in-out absolute`}
+          />
+          <Image
+            src={hoverImage}
+            alt="product"
+            width={300}
+            height={300}
+            className="w-full object-cover bg-neutral-200"
           />
         </div>
 
         <div className="flex flex-col items-center justify-center">
           {/* title of the product */}
-          <h3 className="text-sm lg:text-base">
+          <h3 className="text-sm lg:text-base lg:leading-tight">
             {title ? title : "Product Name"}
           </h3>
           {/* cost of the product */}
@@ -61,7 +70,7 @@ const ProductCard = ({
           text="Add to Cart"
           variant="link"
           href="#"
-          className="w-full flex items-center justify-center gap-2 bg-darkTeal text-ivory rounded-md py-2 lg:py-3 lg:px-4 hover:opacity-85 transition-all duration-200 ease-in-out"
+          className="w-full flex items-center justify-center gap-2 bg-darkTeal text-ivory rounded lg:rounded-md py-2 lg:py-3 lg:px-4 hover:opacity-85 transition-all duration-200 ease-in-out"
         >
           <BiCart size={16} />
         </CallToActionBtn>

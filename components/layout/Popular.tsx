@@ -6,9 +6,9 @@ import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 const Popular = () => {
   return (
     <>
-      <div className="w-full flex flex-col space-y-3 lg:space-y-5">
-        <h3 className="font-light text-xl lg:text-3xl">
-          Shop By <span className="font-bold">Popular Collection</span>
+      <div id="popular-section" className="w-full flex flex-col space-y-3 lg:space-y-8">
+        <h3 className="font-bold text-xl lg:text-3xl text-center">
+          Popular Collection
         </h3>
         <div className="lg:w-full flex gap-3">
           <Carousel
@@ -25,7 +25,7 @@ const Popular = () => {
                 >
                   <ProductCard
                     key={index}
-                    title={"Popular " + (index + 1).toString()}
+                    title={"Silver Cube Bracelet " + (index + 1).toString()}
                     displayImage={displayImage}
                     hoverImage={hoverImage}
                     costPrice="Rs. 1999"

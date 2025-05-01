@@ -6,9 +6,9 @@ import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 const Latest = () => {
   return (
     <>
-      <div className="w-full flex flex-col space-y-3 lg:space-y-5">
-        <h3 className="font-light text-xl lg:text-3xl">
-          Shop By <span className="font-bold">Latest Collection</span>
+      <div id="latest-section" className="w-full flex flex-col space-y-3 lg:space-y-8">
+        <h3 className="font-bold text-xl lg:text-3xl text-center">
+          Latest Collection
         </h3>
         <div className="lg:w-full flex gap-3">
           <Carousel

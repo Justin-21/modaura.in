@@ -46,7 +46,7 @@ const Hero = () => {
             loop: true,
             align: "start",
           }}
-          className="w-full max-sm:aspect-square lg:h-[500px] bg-yellow-300 rounded-2xl overflow-hidden"
+          className="w-full max-sm:aspect-square lg:h-[500px] bg-neutral-300 rounded-2xl overflow-hidden"
         >
           <CarouselContent className="w-full h-full -ml-0 *:flex *:items-center *:justify-center">
             <CarouselItem className="basis-full pl-0">
