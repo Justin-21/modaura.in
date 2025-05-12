@@ -8,6 +8,7 @@ import { LiaShoppingBagSolid } from "react-icons/lia";
 import MobileNav from "./MobileNav";
 import { IoIosArrowDown } from "react-icons/io";
 import { Separator } from "../ui/separator";
+import Link from "next/link";
 
 const Navbar = () => {
   const [width, setWidth] = useState(0);
@@ -72,21 +73,20 @@ const Navbar = () => {
               latest
             </li>
 
-            <li
-              className="cursor-pointer"
-              onClick={() => {}}
-            >
-              combo-packs
+            <li className="cursor-pointer">
+              <Link href="/product/1">Combo-Packs</Link>
             </li>
           </ul>
         </div>
 
         <div className="w-1/3 flex items-center justify-center">
-          <Image
-            src={logo}
-            alt="logo"
-            className="h-8"
-          />
+          <Link href="/">
+            <Image
+              src={logo}
+              alt="logo"
+              className="h-8"
+            />
+          </Link>
         </div>
 
         <div className="w-1/3 flex items-center justify-end">
