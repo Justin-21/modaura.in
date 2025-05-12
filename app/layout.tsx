@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Urbanist } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -43,7 +45,15 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${satoshi.variable} ${urbanist.variable} ${melodrama.variable} bg-ivory antialiased`}
       >
-        {children}
+        <nav className="w-full z-10 sticky top-0">
+          <Navbar />
+        </nav>
+        <main className="font-urbanist min-h-screen w-screen overflow-hidden flex flex-col space-y-10 lg:space-y-16 px-4 lg:px-28 items-start justify-start">
+          {children}
+        </main>
+        <footer>
+          <Footer />
+        </footer>
       </body>
     </html>
   );

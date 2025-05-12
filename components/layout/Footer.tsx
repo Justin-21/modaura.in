@@ -3,9 +3,9 @@ import React from "react";
 const Footer = () => {
   return (
     <section>
-      <div className="w-screen h-full bg-beige flex flex-col items-start justify-start mt-16 px-4 lg:px-12 pt-4 lg:pt-8 pb-16 lg:pb-24 font-urbanist tracking-wide space-y-10">
+      <div className="w-screen h-full bg-beige flex flex-col items-start justify-start mt-16 px-4 lg:px-28 pt-4 lg:pt-8 pb-16 lg:pb-24 font-urbanist tracking-wide space-y-10">
         <div className="flex flex-col lg:flex-row w-full items-start lg:justify-between space-y-4">
-          <div>
+          <div className="flex flex-col xl:space-y-2">
             <h4 className="text-lg lg:text-xl uppercase">All Jewellery</h4>
             <ul className="text-sm lg:text-base">
               <li>Earrings</li>
@@ -17,7 +17,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div>
+          <div className="flex flex-col xl:space-y-2">
             <h4 className="text-lg lg:text-xl uppercase">Info</h4>
             <ul className="text-sm lg:text-base">
               <li>About Us</li>
@@ -30,13 +30,15 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="[&_p]:text-sm lg:[&_p]:text-base">
+          <div className="[&_p]:text-sm lg:[&_p]:text-base xl:space-y-2">
             <h4 className="text-lg lg:text-xl uppercase">Contact Us</h4>
-            <p>Modaura E-commerce Pvt. Ltd.</p>
-            <p>support@modaura.in</p>
-            <p>Whatsapp - +91 9876543210</p>
-            <p>XYZ Delhi - 110003</p>
-            <p>India</p>
+            <div>
+              <p>Modaura E-commerce Pvt. Ltd.</p>
+              <p>support@modaura.in</p>
+              <p>Whatsapp +91 9876543210</p>
+              <p>XYZ Delhi - 110003</p>
+              <p>India</p>
+            </div>
           </div>
         </div>
 

@@ -1,7 +1,13 @@
 import hoverImage from "@/public/modauraLogoDark.png";
-import displayImage from "@/public/silver-cube-bracelet.png";
 import ProductCard from "../product/ProductCard";
-import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "../ui/carousel";
+import { products } from "@/constants/data";
 
 const Popular = () => {
   return (
@@ -22,22 +28,25 @@ const Popular = () => {
             className="w-full"
           >
             <CarouselContent className="w-full h-full space-x-2 lg:justify-between -ml-0">
-              {Array.from({ length: 5 }).map((_, index) => (
+              {products.map((item, index) => (
                 <CarouselItem
                   className="pl-0"
                   key={index}
                 >
                   <ProductCard
                     key={index}
-                    title={"Silver Cube Bracelet " + (index + 1).toString()}
-                    displayImage={displayImage}
+                    title={item.title}
+                    displayImage={item.displayImage}
                     hoverImage={hoverImage}
-                    costPrice="Rs. 1999"
-                    sellingPrice="Rs. 999"
+                    costPrice={item.costPrice}
+                    sellingPrice={item.sellingPrice}
                   />
                 </CarouselItem>
               ))}
             </CarouselContent>
+
+            <CarouselPrevious />
+            <CarouselNext />
           </Carousel>
         </div>
       </div>

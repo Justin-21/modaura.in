@@ -26,7 +26,7 @@ const ProductCard = ({
     <>
       <div className="w-fit h-fit flex flex-col items-center justify-center space-y-1 lg:space-y-2">
         <div
-          className="size-[150px] lg:size-[250px] 2xl:size-[280px] bg-neutral-200 rounded-md overflow-hidden flex items-center justify-center cursor-pointer transition-all duration-200 ease-in-out relative"
+          className="size-[150px] lg:size-[250px] 2xl:size-[300px] bg-neutral-200 rounded-md overflow-hidden flex items-center justify-center cursor-pointer transition-all duration-200 ease-in-out relative"
           onMouseEnter={() => setActive(true)}
           onMouseLeave={() => setActive(false)}
         >
@@ -70,7 +70,7 @@ const ProductCard = ({
           text="Add to Cart"
           variant="link"
           href="#"
-          className="w-full flex items-center justify-center gap-2 bg-darkTeal text-ivory rounded lg:rounded-md py-2 lg:py-3 lg:px-4 hover:opacity-85 transition-all duration-200 ease-in-out"
+          className="w-full flex items-center justify-center gap-2 bg-darkTeal text-ivory rounded lg:rounded-md py-2 lg:py-3 lg:px-4 hover:opacity-90 transition-all duration-200 ease-in-out"
         >
           <BiCart size={16} />
         </CallToActionBtn>
