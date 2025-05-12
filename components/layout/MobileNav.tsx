@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/drawer";
 import { IoClose } from "react-icons/io5";
 import { Separator } from "../ui/separator";
+import Link from "next/link";
 
 const MobileNav = () => {
   const [open, setOpen] = useState(false);
@@ -81,6 +82,15 @@ const MobileNav = () => {
                   }}
                 >
                   Latest
+                </DrawerTitle>
+                <Separator />
+
+                <DrawerTitle
+                  onClick={() => {
+                    setOpen(false);
+                  }}
+                >
+                  <Link href="/product/1">Combo-Packs</Link>
                 </DrawerTitle>
                 <Separator />
               </DrawerHeader>
