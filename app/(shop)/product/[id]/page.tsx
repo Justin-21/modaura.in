@@ -22,29 +22,15 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { BiSolidOffer } from "react-icons/bi";
+import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures";
 
 const Page = () => {
   // const params = useParams();
   const [quantity, setQuantity] = useState(1);
 
   const [api, setApi] = useState<CarouselApi>();
-  const [current, setCurrent] = useState(0);
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    if (!api) {
-      return;
-    }
-
-    setCount(api.scrollSnapList().length);
-    setCurrent(api.selectedScrollSnap());
-
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap());
-    });
-  }, [api]);
 
   return (
     <>
@@ -61,7 +47,9 @@ const Page = () => {
                   width={540}
                   height={540}
                   className="object-contain aspect-square cursor-pointer size-16 lg:size-20"
-                  onMouseEnter={() => api?.scrollTo(index, true)}
+                  onMouseEnter={() => {
+                    api?.scrollTo(index, true);
+                  }}
                 />
               ))}
             </div>
@@ -71,6 +59,7 @@ const Page = () => {
               opts={{
                 align: "center",
               }}
+              plugins={[WheelGesturesPlugin()]}
               className="size-full xl:w-[540px] aspect-square overflow-hidden"
             >
               <CarouselContent className="-ml-0 aspect-square">
