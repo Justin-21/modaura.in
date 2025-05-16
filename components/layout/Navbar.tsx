@@ -28,13 +28,13 @@ const Navbar = () => {
   };
 
   return width > 768 ? (
-    <div className="w-full font-urbanist bg-ivory">
+    <div className="w-full h-[14dvh] font-urbanist bg-ivory">
       {/* Announcements */}
-      <div className="bg-linear-to-r from-darkTeal to-teal-500 py-2 text-center text-ivory">
+      <div className="h-[6vh] flex items-center justify-center bg-linear-to-r from-darkTeal to-teal-500 py-2 text-center text-ivory">
         New Offers Of The Day!!!
       </div>
 
-      <div className="flex justify-center items-center px-28 py-3">
+      <div className="h-[8vh] flex justify-center items-center px-10 py-3">
         <div className="w-1/3">
           <ul className="flex space-x-5 text-black-1 text-sm capitalize *:font-medium tracking-wide">
             <li
@@ -79,12 +79,13 @@ const Navbar = () => {
           </ul>
         </div>
 
+        {/* Logo */}
         <div className="w-1/3 flex items-center justify-center">
           <Link href="/">
             <Image
               src={logo}
               alt="logo"
-              className="h-8"
+              className="h-7"
             />
           </Link>
         </div>

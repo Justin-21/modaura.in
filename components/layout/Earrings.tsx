@@ -1,13 +1,10 @@
+"use client";
+
 import hoverImage from "@/public/modauraLogoDark.png";
 import displayImage from "@/public/silver-cube-bracelet.png";
+import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures";
 import ProductCard from "../product/ProductCard";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "../ui/carousel";
+import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 
 const Earrings = () => {
   return (
@@ -25,6 +22,7 @@ const Earrings = () => {
               align: "start",
               dragFree: true,
             }}
+            plugins={[WheelGesturesPlugin()]}
             className="w-full"
           >
             <CarouselContent className="lg:w-full h-full space-x-2 lg:justify-between -ml-0">
@@ -44,9 +42,6 @@ const Earrings = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-
-            <CarouselPrevious />
-            <CarouselNext />
           </Carousel>
         </div>
       </div>

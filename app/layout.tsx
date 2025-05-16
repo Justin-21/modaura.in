@@ -48,7 +48,7 @@ export default function RootLayout({
         <nav className="w-full z-10 sticky top-0">
           <Navbar />
         </nav>
-        <main className="font-urbanist min-h-screen w-screen overflow-hidden flex flex-col space-y-10 lg:space-y-16 px-4 lg:px-28 items-start justify-start">
+        <main className="font-urbanist min-h-screen w-screen overflow-hidden flex flex-col space-y-10 lg:space-y-16 px-5 lg:px-10 items-start justify-start">
           {children}
         </main>
         <footer>

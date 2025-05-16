@@ -1,13 +1,15 @@
-import hoverImage from "@/public/modauraLogoDark.png";
-import ProductCard from "../product/ProductCard";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "../ui/carousel";
+"use client";
+
 import { products } from "@/constants/data";
+import hoverImage from "@/public/modauraLogoDark.png";
+import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures";
+import ProductCard from "../product/ProductCard";
+import
+  {
+    Carousel,
+    CarouselContent,
+    CarouselItem
+  } from "../ui/carousel";
 
 const Popular = () => {
   return (
@@ -25,6 +27,7 @@ const Popular = () => {
               align: "start",
               dragFree: true,
             }}
+            plugins={[WheelGesturesPlugin()]}
             className="w-full"
           >
             <CarouselContent className="w-full h-full space-x-2 lg:justify-between -ml-0">
@@ -44,9 +47,6 @@ const Popular = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-
-            <CarouselPrevious />
-            <CarouselNext />
           </Carousel>
         </div>
       </div>

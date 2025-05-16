@@ -1,14 +1,13 @@
 "use client";
 
 import CallToActionBtn from "@/components/ui/callToActionBtn";
-import displayImage from "@/public/silver-cube-bracelet.png";
 import Image from "next/image";
 // import { useParams } from "next/navigation";
 import { IoMdAdd, IoMdHeart } from "react-icons/io";
 import { MdCancel, MdLocalShipping } from "react-icons/md";
 import { RiSubtractLine } from "react-icons/ri";
 
-import { FAQs } from "@/constants/data";
+import { FAQs, products } from "@/constants/data";
 
 import Popular from "@/components/layout/Popular";
 import {
@@ -17,53 +16,98 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { useState } from "react";
+import {
+  Carousel,
+  CarouselApi,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import { useEffect, useState } from "react";
 import { BiSolidOffer } from "react-icons/bi";
 
 const Page = () => {
   // const params = useParams();
   const [quantity, setQuantity] = useState(1);
 
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap());
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap());
+    });
+  }, [api]);
+
   return (
     <>
-      <div className="w-full md:h-[600px] flex max-sm:flex-col items-start justify-between relative overflow-scroll mt-5 gap-5 lg:gap-10">
+      <div className="w-full md:h-[600px] max-sm:flex-col flex items-start lg:justify-between relative overflow-scroll mt-5 gap-5 xl:gap-10">
         {/* Images of the product */}
-        <div className="w-full md:w-1/2 size-fit md:sticky md:top-0">
-          <div className="w-full flex max-lg:flex-col-reverse max-sm:items-center justify-between max-lg:gap-2 lg:space-x-2.5">
-            <div className="max-lg:w-full flex lg:flex-col max-lg:space-x-2 md:space-y-2 *:max-lg:size-14 *:size-20 ">
-              <Image
-                src={displayImage}
-                alt="Product Image"
-                className="object-cover w-full aspect-square"
-              />
-              <Image
-                src={displayImage}
-                alt="Product Image"
-                className="object-cover w-full aspect-square"
-              />
-              <Image
-                src={displayImage}
-                alt="Product Image"
-                className="object-cover w-full aspect-square"
-              />
+        <div className="w-full sm:max-w-max sm:sticky sm:top-0">
+          <div className="w-full flex max-lg:flex-col-reverse max-lg:gap-2 lg:space-x-2.5">
+            <div className="flex lg:flex-col space-x-2 xl:space-y-2 overflow-scroll">
+              {products.map((item, index) => (
+                <Image
+                  key={index}
+                  src={item.displayImage}
+                  alt="product image"
+                  width={540}
+                  height={540}
+                  className="object-contain aspect-square cursor-pointer size-16 lg:size-20"
+                  onMouseEnter={() => api?.scrollTo(index, true)}
+                />
+              ))}
             </div>
 
-            <Image
+            <Carousel
+              setApi={setApi}
+              opts={{
+                align: "center",
+              }}
+              className="size-full xl:w-[540px] aspect-square overflow-hidden"
+            >
+              <CarouselContent className="-ml-0 aspect-square">
+                {products.map((item, index) => (
+                  <CarouselItem
+                    className="pl-0"
+                    key={index}
+                  >
+                    <Image
+                      key={index}
+                      src={item.displayImage}
+                      alt="product image"
+                      width={540}
+                      height={540}
+                      className="object-contain aspect-square size-full xl:w-[540px]"
+                    />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
+
+            {/* <Image
               src={displayImage}
               alt="Product Image"
-              className="object-cover aspect-square max-lg:size-full xl:size-[540px]"
-            />
+              className="object-cover aspect-square max-md:size-full xl:size-[540px]"
+            /> */}
           </div>
         </div>
 
         {/* Description of the product */}
-        <div className="md:w-1/2 flex flex-col space-y-5">
+        <div className="w-full flex flex-col space-y-5">
           <ul className="*:tracking-wide space-y-2 lg:space-y-5">
             <li className="flex flex-col">
               <span className="font-semibold text-2xl lg:text-4xl">
                 Silver Cube Bracelet
               </span>
-              <span className="font-medium">
+              <span className="font-medium text-neutral-500">
                 A bright shiny cubical bracelet fot the Gen-zs.
               </span>
             </li>
@@ -104,7 +148,7 @@ const Page = () => {
           <div className="w-full space-y-2">
             <CallToActionBtn
               text="Add To Cart"
-              className="w-full bg-linear-to-r from-darkTeal to-teal-500 py-3 text-ivory uppercase tracking-wide font-medium rounded-md lg:text-lg"
+              className="w-full bg-linear-to-r from-darkTeal to-teal-500 py-3 text-ivory uppercase tracking-wide font-medium rounded-md lg:text-lg transition-all duration-300 ease-in-out"
               variant="default"
             />
 
