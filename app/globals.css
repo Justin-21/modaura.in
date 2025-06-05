@@ -14,6 +14,7 @@
   --font-satoshi: var(--font-satoshi);
   --font-urbanist: var(--font-urbanist);
   --font-melodrama: var(--font-melodrama);
+  --font-dmSans: var(--font-dm-sans);
   /* --font-satoshi-italic: var("Satoshi-VariableItalic"); */
 
   --font-sans: var(--font-geist-sans);
@@ -133,4 +134,25 @@
 
 ::-webkit-scrollbar {
   display: none;
+}
+
+html.lenis,
+hteml.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
 }
