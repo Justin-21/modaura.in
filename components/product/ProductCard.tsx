@@ -4,6 +4,7 @@ import Image, { StaticImageData } from "next/image";
 import { useState } from "react";
 import { BiCart } from "react-icons/bi";
 import CallToActionBtn from "../ui/callToActionBtn";
+import { IoMdHeartEmpty } from "react-icons/io";
 
 type Props = {
   displayImage: string | StaticImageData;
@@ -26,7 +27,7 @@ const ProductCard = ({
     <>
       <div className="w-fit h-fit flex flex-col items-center justify-center space-y-1 lg:space-y-2">
         <div
-          className="size-[150px] lg:size-[250px] 2xl:size-[300px] bg-neutral-200 rounded-md overflow-hidden flex items-center justify-center cursor-pointer transition-all duration-200 ease-in-out relative"
+          className="size-[150px] lg:size-[250px] 2xl:size-[300px] bg-neutral-200 rounded-lg lg:rounded-xl overflow-hidden flex items-center justify-center cursor-pointer transition-all duration-200 ease-in-out relative"
           onMouseEnter={() => setActive(true)}
           onMouseLeave={() => setActive(false)}
         >
@@ -47,11 +48,12 @@ const ProductCard = ({
             height={300}
             className="w-full object-cover bg-neutral-200"
           />
+          <IoMdHeartEmpty className="absolute right-5 top-5 border size-8 p-1.5 rounded-full bg-roseGold opacity-70 text-ivory hover:opacity-100" />
         </div>
 
         <div className="flex flex-col items-center justify-center">
           {/* title of the product */}
-          <h3 className="text-sm lg:text-base lg:leading-tight tracking-wide">
+          <h3 className="text-xs lg:text-base lg:leading-tight font-light">
             {title ? title : "Product Name"}
           </h3>
           {/* cost of the product */}
@@ -70,7 +72,7 @@ const ProductCard = ({
           text="Add to Cart"
           variant="link"
           href="#"
-          className="w-full flex items-center justify-center gap-2 bg-darkTeal text-ivory rounded lg:rounded-md py-2 lg:py-3 lg:px-4 hover:opacity-90 transition-all duration-200 ease-in-out"
+          className="w-full flex items-center justify-center gap-2 bg-black-1 text-ivory rounded lg:rounded-xl py-2 lg:py-3 lg:px-4 hover:opacity-90 transition-all duration-200 ease-in-out"
         >
           <BiCart size={16} />
         </CallToActionBtn>

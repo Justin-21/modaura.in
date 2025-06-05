@@ -25,16 +25,16 @@ const CallToActionBtn = ({
           href={href!}
           className={`cursor-pointer flex text-xs lg:text-base items-center justify-center ${className}`}
         >
-          {children}
           {text ? text : "link-button"}
+          {children}
         </Link>
       ) : (
         <button
           className={`cursor-pointer flex text-xs lg:text-base items-center justify-center ${className}`}
           onClick={onClick}
         >
-          {children}
           {text ? text : "default-button"}
+          {children}
         </button>
       )}
     </>
