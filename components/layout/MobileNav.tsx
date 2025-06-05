@@ -30,12 +30,12 @@ const MobileNav = () => {
   };
 
   return (
-    <div className="w-full font-urbanist bg-ivory">
-      <div className="bg-linear-to-r from-darkTeal to-teal-500 py-2 text-center text-ivory text-xs lg:text-base">
+    <>
+      <div className="py-2 text-center text-black-1 text-xs lg:text-base font-dmSans border-b border-neutral-400">
         New Offers Of The Day!!!
       </div>
 
-      <div className="flex justify-between items-center px-4 py-3">
+      <nav className="flex justify-between items-center px-4 py-4 sticky top-0 z-10 bg-ivory">
         <div className="w-1/3 relative flex items-center justify-start">
           {/* <IoIosMenu
             size={24}
@@ -50,7 +50,7 @@ const MobileNav = () => {
             <DrawerTrigger>
               <IoIosMenu size={22} />
             </DrawerTrigger>
-            <DrawerContent className="font-urbanist bg-darkTeal text-ivory">
+            <DrawerContent className="font-dmSans bg-darkTeal text-ivory">
               <DrawerClose className="flex items-end justify-end pt-5 pr-5">
                 <IoClose size={24} />
               </DrawerClose>
@@ -108,17 +108,17 @@ const MobileNav = () => {
         </div>
 
         <div className="w-1/3 flex items-center justify-end">
-          <ul className="flex space-x-3 text-black-1 items-center justify-center *:cursor-pointer">
+          <ul className="flex space-x-2 text-black-1 items-center justify-center *:cursor-pointer">
             <li>
-              <LiaShoppingBagSolid size={20} />
+              <LiaShoppingBagSolid className="size-auto p-1 border rounded-full" />
             </li>
             <li>
-              <HiUser size={20} />
+              <HiUser className="size-auto p-1 border rounded-full" />
             </li>
           </ul>
         </div>
-      </div>
-    </div>
+      </nav>
+    </>
   );
 };
 

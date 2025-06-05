@@ -28,15 +28,15 @@ const Navbar = () => {
   };
 
   return width > 768 ? (
-    <div className="w-full h-[14dvh] font-urbanist bg-ivory">
+    <>
       {/* Announcements */}
-      <div className="h-[6vh] flex items-center justify-center bg-linear-to-r from-darkTeal to-teal-500 py-2 text-center text-ivory">
+      <div className="flex items-center justify-center border-b border-neutral-400 py-3 text-center text-black-1 text-sm font-urbanist">
         New Offers Of The Day!!!
       </div>
 
-      <div className="h-[8vh] flex justify-center items-center px-10 py-3">
+      <nav className="h-[12dvh] flex justify-center items-center px-10 py-3 sticky top-0 z-10 bg-ivory font-urbanist">
         <div className="w-1/3">
-          <ul className="flex space-x-5 text-black-1 text-sm capitalize *:font-medium tracking-wide">
+          <ul className="flex space-x-5 text-black-1 text-sm capitalize *:font-medium *:hover:font-semibold tracking-wide">
             <li
               onClick={() => ScrollIntoView("categories-section")}
               className="relative cursor-pointer"
@@ -91,17 +91,17 @@ const Navbar = () => {
         </div>
 
         <div className="w-1/3 flex items-center justify-end">
-          <ul className="flex space-x-5 text-black-1 items-center justify-center *:cursor-pointer">
+          <ul className="flex space-x-3 text-black-1 items-center justify-center *:cursor-pointer">
             <li>
-              <LiaShoppingBagSolid size={22} />
+              <LiaShoppingBagSolid className="size-auto p-2 border rounded-full" />
             </li>
             <li>
-              <HiUser size={22} />
+              <HiUser className="size-auto p-2 border rounded-full" />
             </li>
           </ul>
         </div>
-      </div>
-    </div>
+      </nav>
+    </>
   ) : (
     <MobileNav />
   );

@@ -48,7 +48,7 @@ const ProductCard = ({
             height={300}
             className="w-full object-cover bg-neutral-200"
           />
-          <IoMdHeartEmpty className="absolute right-5 top-5 border size-8 p-1.5 rounded-full bg-roseGold opacity-70 text-ivory hover:opacity-100" />
+          <IoMdHeartEmpty className="absolute right-2 top-2 lg:right-5 lg:top-5 border size-6 p-1 lg:size-8 rounded-full bg-white opacity-70 text-darkTeal hover:opacity-100 transition-all duration-200" />
         </div>
 
         <div className="flex flex-col items-center justify-center">
@@ -72,7 +72,7 @@ const ProductCard = ({
           text="Add to Cart"
           variant="link"
           href="#"
-          className="w-full flex items-center justify-center gap-2 bg-black-1 text-ivory rounded lg:rounded-xl py-2 lg:py-3 lg:px-4 hover:opacity-90 transition-all duration-200 ease-in-out"
+          className="w-full flex items-center justify-center gap-2 bg-black-1 text-ivory rounded-lg lg:rounded-xl py-2 lg:py-3 lg:px-4 hover:opacity-90 transition-all duration-200 ease-in-out"
         >
           <BiCart size={16} />
         </CallToActionBtn>

@@ -257,10 +257,9 @@ const Page = () => {
             <AccordionItem
               key={index}
               value={`item-${index}`}
-              className="*:tracking-wide"
             >
               <AccordionTrigger className="flex-row-reverse justify-end">
-                <span className="font-semibold">{faq.query}</span>
+                <span className="font-medium">{faq.query}</span>
               </AccordionTrigger>
               <AccordionContent>{faq.answer}</AccordionContent>
             </AccordionItem>

@@ -18,7 +18,7 @@ const Latest = () => {
         id="latest-section"
         className="w-full flex flex-col space-y-3 lg:space-y-8"
       >
-        <h3 className="font-bold text-xl lg:text-4xl text-center">
+        <h3 className="font-medium text-xl lg:text-5xl text-center">
           Latest Collection
         </h3>
         <div className="lg:w-full flex gap-3">
@@ -30,7 +30,7 @@ const Latest = () => {
             plugins={[WheelGesturesPlugin()]}
             className="w-full"
           >
-            <CarouselContent className="lg:w-full h-full space-x-2 lg:justify-between -ml-0">
+            <CarouselContent className="lg:w-full h-full lg:justify-between -ml-0">
               {Array.from({ length: 5 }).map((_, index) => (
                 <CarouselItem
                   className="pl-0"

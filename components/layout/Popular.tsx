@@ -16,9 +16,9 @@ const Popular = () => {
     <section className="w-full">
       <div
         id="popular-section"
-        className="w-full flex flex-col space-y-3 lg:space-y-8"
+        className="w-full flex flex-col space-y-3 lg:space-y-10"
       >
-        <h3 className="font-bold text-xl lg:text-4xl text-center">
+        <h3 className="font-medium text-xl lg:text-5xl text-center">
           Popular Collection
         </h3>
         <div className="w-full flex lg:gap-3">
@@ -30,7 +30,7 @@ const Popular = () => {
             plugins={[WheelGesturesPlugin()]}
             className="w-full"
           >
-            <CarouselContent className="w-full h-full space-x-2 lg:justify-between -ml-0">
+            <CarouselContent className="w-full h-full lg:justify-between -ml-0">
               {products.map((item, index) => (
                 <CarouselItem
                   className="pl-0"
