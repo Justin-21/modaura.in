@@ -18,8 +18,8 @@ const Popular = () => {
         id="popular-section"
         className="w-full flex flex-col space-y-3 lg:space-y-10"
       >
-        <h3 className="font-medium text-xl lg:text-5xl text-center">
-          Popular Collection
+        <h3 className="text-xl lg:text-5xl text-center tracking-tighter">
+          <span className="font-semibold">Popular</span> Collection
         </h3>
         <div className="w-full flex lg:gap-3">
           <Carousel

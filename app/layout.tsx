@@ -4,7 +4,6 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import { ReactLenis } from "lenis/react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -48,22 +47,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <ReactLenis
-        root
-        options={{
-          allowNestedScroll: true,
-        }}
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${satoshi.variable} ${urbanist.variable} ${melodrama.variable} ${dmSans.variable} bg-ivory antialiased relative`}
       >
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} ${satoshi.variable} ${urbanist.variable} ${melodrama.variable} ${dmSans.variable} bg-ivory antialiased relative`}
-        >
-          <Navbar />
-          <main className="font-dmSans min-h-screen w-screen overflow-hidden flex flex-col space-y-10 lg:space-y-16 px-5 lg:px-10 items-start justify-start">
-            {children}
-          </main>
-          <Footer />
-        </body>
-      </ReactLenis>
+        <Navbar />
+        <main className="font-dmSans min-h-screen w-screen overflow-hidden flex flex-col space-y-10 lg:space-y-16 px-5 lg:px-10 items-start justify-start">
+          {children}
+        </main>
+        <Footer />
+      </body>
     </html>
   );
 }

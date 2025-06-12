@@ -4,12 +4,7 @@ import hoverImage from "@/public/modauraLogoDark.png";
 import displayImage from "@/public/silver-cube-bracelet.png";
 import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures";
 import ProductCard from "../product/ProductCard";
-import
-  {
-    Carousel,
-    CarouselContent,
-    CarouselItem
-  } from "../ui/carousel";
+import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 
 const Latest = () => {
   return (
@@ -18,10 +13,10 @@ const Latest = () => {
         id="latest-section"
         className="w-full flex flex-col space-y-3 lg:space-y-8"
       >
-        <h3 className="font-medium text-xl lg:text-5xl text-center">
-          Latest Collection
+        <h3 className="text-xl lg:text-5xl text-center tracking-tighter">
+          <span className="font-semibold">Latest</span> Collection
         </h3>
-        <div className="lg:w-full flex gap-3">
+        <div className="lg:w-full flex">
           <Carousel
             opts={{
               align: "start",

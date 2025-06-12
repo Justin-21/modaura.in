@@ -15,7 +15,7 @@ const Footer = () => {
             <h4 className="text-lg lg:text-xl font-semibold uppercase">
               All Jewellery
             </h4>
-            <ul className="text-sm lg:text-base space-y-1 xl:space-y-2 *:hover:underline-offset-2 *:hover:underline">
+            <ul className="text-sm lg:text-base space-y-1 xl:space-y-2 *:hover:underline-offset-2 *:hover:underline *:w-fit" >
               <li>Earrings</li>
               <li>Necklaces</li>
               <li>Bracelets</li>
@@ -27,7 +27,7 @@ const Footer = () => {
 
           <div className="flex flex-col xl:space-y-2">
             <h4 className="text-lg lg:text-xl font-semibold uppercase">Info</h4>
-            <ul className="text-sm lg:text-base space-y-1 xl:space-y-2 *:hover:underline-offset-2 *:hover:underline">
+            <ul className="text-sm lg:text-base space-y-1 xl:space-y-2 *:hover:underline-offset-2 *:hover:underline *:w-fit">
               <li>About Us</li>
               <li>Privacy Policy</li>
               <li>Terms Of Service</li>
@@ -43,7 +43,7 @@ const Footer = () => {
               Contact Us
             </h4>
             <div>
-              <p>Modaura E-commerce Pvt. Ltd.</p>
+              <p className="font-semibold">Modaura E-commerce Pvt. Ltd.</p>
               <p>support@modaura.in</p>
               <p>Whatsapp +91 9876543210</p>
               <p>XYZ Delhi - 110003</p>

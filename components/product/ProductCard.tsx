@@ -72,7 +72,7 @@ const ProductCard = ({
           text="Add to Cart"
           variant="link"
           href="#"
-          className="w-full flex items-center justify-center gap-2 bg-black-1 text-ivory rounded-lg lg:rounded-xl py-2 lg:py-3 lg:px-4 hover:opacity-90 transition-all duration-200 ease-in-out"
+          className="w-full flex items-center justify-center gap-2 bg-darkTeal text-ivory rounded-lg lg:rounded-xl py-2 lg:py-3 lg:px-4 hover:opacity-90 transition-all duration-200 ease-in-out"
         >
           <BiCart size={16} />
         </CallToActionBtn>
