@@ -1,15 +1,9 @@
 "use client";
 
 import { products } from "@/constants/data";
-import hoverImage from "@/public/modauraLogoDark.png";
 import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures";
 import ProductCard from "../product/ProductCard";
-import
-  {
-    Carousel,
-    CarouselContent,
-    CarouselItem
-  } from "../ui/carousel";
+import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 
 const Popular = () => {
   return (
@@ -40,7 +34,6 @@ const Popular = () => {
                     key={index}
                     title={item.title}
                     displayImage={item.displayImage}
-                    hoverImage={hoverImage}
                     costPrice={item.costPrice}
                     sellingPrice={item.sellingPrice}
                   />

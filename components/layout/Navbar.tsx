@@ -11,7 +11,8 @@ import { Separator } from "../ui/separator";
 import Link from "next/link";
 
 const Navbar = () => {
-  const [width, setWidth] = useState(0);
+  const hasWindow = typeof window !== "undefined";
+  const [width, setWidth] = useState(hasWindow ? window.innerWidth : 768);
 
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);
@@ -30,7 +31,7 @@ const Navbar = () => {
   return width > 768 ? (
     <>
       {/* Announcements */}
-      <div className="flex items-center justify-center border-b border-neutral-400 py-3 text-center text-black-1 text-sm font-urbanist">
+      <div className="flex items-center justify-center border-b border-neutral-400 py-3 text-center text-ivory bg-darkTeal text-sm font-urbanist">
         New Offers Of The Day!!!
       </div>
 
@@ -93,10 +94,10 @@ const Navbar = () => {
         <div className="w-1/3 flex items-center justify-end">
           <ul className="flex space-x-3 text-black-1 items-center justify-center *:cursor-pointer">
             <li>
-              <LiaShoppingBagSolid className="size-auto p-2 border rounded-full" />
+              <LiaShoppingBagSolid className="size-auto p-2 border rounded-full fill-darkTeal" />
             </li>
             <li>
-              <HiUser className="size-auto p-2 border rounded-full" />
+              <HiUser className="size-auto p-2 border rounded-full fill-darkTeal" />
             </li>
           </ul>
         </div>

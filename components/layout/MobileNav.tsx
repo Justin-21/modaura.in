@@ -31,7 +31,7 @@ const MobileNav = () => {
 
   return (
     <>
-      <div className="py-2 text-center text-black-1 text-xs lg:text-base font-dmSans border-b border-neutral-400">
+      <div className="py-2 bg-darkTeal text-center text-ivory text-xs lg:text-base font-dmSans border-b border-neutral-400">
         New Offers Of The Day!!!
       </div>
 
@@ -48,7 +48,7 @@ const MobileNav = () => {
             onOpenChange={setOpen}
           >
             <DrawerTrigger>
-              <IoIosMenu size={22} />
+              <IoIosMenu className="size-auto text-darkTeal border rounded-full p-1" />
             </DrawerTrigger>
             <DrawerContent className="font-dmSans bg-darkTeal text-ivory">
               <DrawerClose className="flex items-end justify-end pt-5 pr-5">
@@ -110,10 +110,10 @@ const MobileNav = () => {
         <div className="w-1/3 flex items-center justify-end">
           <ul className="flex space-x-2 text-black-1 items-center justify-center *:cursor-pointer">
             <li>
-              <LiaShoppingBagSolid className="size-auto p-1 border rounded-full" />
+              <LiaShoppingBagSolid className="size-auto p-1 border rounded-full text-darkTeal" />
             </li>
             <li>
-              <HiUser className="size-auto p-1 border rounded-full" />
+              <HiUser className="size-auto p-1 border rounded-full text-darkTeal" />
             </li>
           </ul>
         </div>

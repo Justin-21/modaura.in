@@ -1,14 +1,12 @@
 "use client";
 
 import Image, { StaticImageData } from "next/image";
-import { useState } from "react";
 import { BiCart } from "react-icons/bi";
 import CallToActionBtn from "../ui/callToActionBtn";
 import { IoMdHeartEmpty } from "react-icons/io";
 
 type Props = {
   displayImage: string | StaticImageData;
-  hoverImage: string | StaticImageData;
   title: string;
   sellingPrice: string;
   costPrice: string;
@@ -16,20 +14,19 @@ type Props = {
 
 const ProductCard = ({
   displayImage,
-  hoverImage,
   title,
   costPrice,
   sellingPrice,
 }: Props) => {
-  const [active, setActive] = useState(false);
+  // const [active, setActive] = useState(false);
 
   return (
     <>
       <div className="w-fit h-fit flex flex-col items-center justify-center space-y-1 lg:space-y-2">
         <div
           className="size-[150px] lg:size-[250px] 2xl:size-[300px] bg-neutral-200 rounded-lg lg:rounded-xl overflow-hidden flex items-center justify-center cursor-pointer transition-all duration-200 ease-in-out relative"
-          onMouseEnter={() => setActive(true)}
-          onMouseLeave={() => setActive(false)}
+          // onMouseEnter={() => setActive(true)}
+          // onMouseLeave={() => setActive(false)}
         >
           {/* image of the product */}
           <Image
@@ -37,17 +34,15 @@ const ProductCard = ({
             alt="product"
             width={300}
             height={300}
-            className={`w-full object-cover bg-neutral-200 ${
-              active ? "opacity-0" : "opacity-100"
-            } transition-all duration-300 ease-in-out absolute`}
+            className={`w-full object-cover transition-all hover:scale-120 duration-150 ease-in-out absolute`}
           />
-          <Image
+          {/* <Image
             src={hoverImage}
             alt="product"
             width={300}
             height={300}
             className="w-full object-cover bg-neutral-200"
-          />
+          /> */}
           <IoMdHeartEmpty className="absolute right-2 top-2 lg:right-5 lg:top-5 border size-6 p-1 lg:size-8 rounded-full bg-white opacity-70 text-darkTeal hover:opacity-100 transition-all duration-200" />
         </div>
 

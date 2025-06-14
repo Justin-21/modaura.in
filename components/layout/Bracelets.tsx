@@ -1,6 +1,5 @@
 "use client";
 
-import hoverImage from "@/public/modauraLogoDark.png";
 import displayImage from "@/public/silver-cube-bracelet.png";
 import ProductCard from "../product/ProductCard";
 import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
@@ -35,7 +34,6 @@ const Bracelets = () => {
                     key={index}
                     title={"Silver Cube Bracelet " + (index + 1).toString()}
                     displayImage={displayImage}
-                    hoverImage={hoverImage}
                     costPrice="Rs. 1999"
                     sellingPrice="Rs. 999"
                   />
