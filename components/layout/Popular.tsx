@@ -32,6 +32,7 @@ const Popular = () => {
                 >
                   <ProductCard
                     key={index}
+                    prodId={index}
                     title={item.title}
                     displayImage={item.displayImage}
                     costPrice={item.costPrice}

@@ -4,8 +4,10 @@ import Image, { StaticImageData } from "next/image";
 import { BiCart } from "react-icons/bi";
 import CallToActionBtn from "../ui/callToActionBtn";
 import { IoMdHeartEmpty } from "react-icons/io";
+import Link from "next/link";
 
 type Props = {
+  prodId: number;
   displayImage: string | StaticImageData;
   title: string;
   sellingPrice: string;
@@ -13,6 +15,7 @@ type Props = {
 };
 
 const ProductCard = ({
+  prodId,
   displayImage,
   title,
   costPrice,
@@ -21,7 +24,7 @@ const ProductCard = ({
   // const [active, setActive] = useState(false);
 
   return (
-    <>
+    <Link href={`/product/${prodId}`}>
       <div className="w-fit h-fit flex flex-col items-center justify-center space-y-1 lg:space-y-2">
         <div
           className="size-[150px] lg:size-[250px] 2xl:size-[300px] bg-neutral-200 rounded-lg lg:rounded-xl overflow-hidden flex items-center justify-center cursor-pointer transition-all duration-200 ease-in-out relative"
@@ -72,7 +75,7 @@ const ProductCard = ({
           <BiCart size={16} />
         </CallToActionBtn>
       </div>
-    </>
+    </Link>
   );
 };
 

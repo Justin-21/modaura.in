@@ -32,6 +32,7 @@ const Latest = () => {
                 >
                   <ProductCard
                     key={index}
+                    prodId={index}
                     title={"Latest " + (index + 1).toString()}
                     displayImage={displayImage}
                     costPrice="Rs. 1999"

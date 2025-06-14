@@ -32,6 +32,7 @@ const Rings = () => {
                 >
                   <ProductCard
                     key={index}
+                    prodId={index}
                     title={"Silver Cube Bracelet " + (index + 1).toString()}
                     displayImage={displayImage}
                     costPrice="Rs. 1999"
