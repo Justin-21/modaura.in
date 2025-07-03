@@ -1,6 +1,6 @@
 "use client";
 
-import logo from "@/public/ModAura_logo.svg";
+import logo from "@/public/logo-color.svg";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";

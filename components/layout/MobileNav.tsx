@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import logo from "@/public/ModAura_logo.svg";
+import logo from "@/public/logo-color.svg";
 import React, { useState } from "react";
 import { HiUser } from "react-icons/hi";
 import { LiaShoppingBagSolid } from "react-icons/lia";
