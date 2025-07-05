@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { HiUser } from "react-icons/hi";
 import { IoIosArrowDown } from "react-icons/io";
 import { LiaShoppingBagSolid } from "react-icons/lia";
-import { Separator } from "../ui/separator";
+// import { Separator } from "../ui/separator";
 import MobileNav from "./MobileNav";
 
 const Navbar = () => {
@@ -37,22 +37,30 @@ const Navbar = () => {
 
       <nav className="h-[10dvh] flex justify-center items-center px-10 py-3 sticky top-0 z-10 bg-ivory font-urbanist">
         <div className="w-1/3">
-          <ul className="flex space-x-5 text-black-1 text-base capitalize *:font-medium *:hover:font-semibold tracking-wide">
+          <ul className="flex space-x-5 text-black-1 text-sm uppercase *:hover:text-darkTeal tracking-wide">
             <li className="relative cursor-pointer">
               <span className="flex items-center space-x-1 peer">
                 <p>categories</p>
                 <IoIosArrowDown />
               </span>
 
-              <div className="absolute top-6 -left-3 text-center bg-ivory border px-5 py-4 rounded opacity-0 hover:opacity-100 peer-hover:opacity-100 invisible hover:visible peer-hover:visible transition-all duration-300 ease-in-out shadow-xl">
-                <ul className="space-y-1 cursor-auto *:cursor-pointer *:text-neutral-400 *:hover:text-black-1 *:font-light *:hover:font-normal *:tracking-wide">
-                  <li>rings</li>
-                  <Separator className="bg-neutral-500" />
-                  <li>necklaces</li>
-                  <Separator className="bg-neutral-500" />
-                  <li>bracelets</li>
-                  <Separator className="bg-neutral-500" />
-                  <li>earrings</li>
+              <div className="absolute top-6 bg-ivory border px-4 py-6 rounded-lg opacity-0 hover:opacity-100 peer-hover:opacity-100 invisible hover:visible peer-hover:visible transition-all duration-300 ease-in-out shadow-xl">
+                <ul className="space-y-2 cursor-auto *:cursor-pointer *:text-neutral-600 *:hover:text-black-1 *:font-light *:hover:font-normal *:tracking-wide">
+                  <li>
+                    <Link href="/productByCategory/rings">rings</Link>
+                  </li>
+                  {/* <Separator className="bg-neutral-500" /> */}
+                  <li>
+                    <Link href="/productByCategory/necklaces">necklaces</Link>
+                  </li>
+                  {/* <Separator className="bg-neutral-500" /> */}
+                  <li>
+                    <Link href="/productByCategory/bracelets">bracelets</Link>
+                  </li>
+                  {/* <Separator className="bg-neutral-500" /> */}
+                  <li>
+                    <Link href="/productByCategory/earrings">earrings</Link>
+                  </li>
                 </ul>
               </div>
             </li>
@@ -70,10 +78,6 @@ const Navbar = () => {
             >
               latest
             </li>
-
-            <li className="cursor-pointer">
-              <Link href="/product/1">Combo-Packs</Link>
-            </li>
           </ul>
         </div>
 
@@ -85,12 +89,12 @@ const Navbar = () => {
         </div>
 
         <div className="w-1/3 flex items-center justify-end">
-          <ul className="flex space-x-3 text-black-1 items-center justify-center *:cursor-pointer">
-            <li className="border rounded-full p-2 hover:bg-darkTeal hover:*:fill-ivory transition-all">
-              <LiaShoppingBagSolid className="size-auto lg:size-5 fill-darkTeal" />
+          <ul className="flex space-x-5 text-black-1 items-center justify-center *:cursor-pointer">
+            <li className="">
+              <LiaShoppingBagSolid className="size-auto lg:size-6 fill-darkTeal" />
             </li>
-            <li className="border rounded-full p-2 hover:bg-darkTeal hover:*:fill-ivory transition-all">
-              <HiUser className="size-auto lg:size-5 fill-darkTeal" />
+            <li className="">
+              <HiUser className="size-auto lg:size-6 fill-darkTeal" />
             </li>
           </ul>
         </div>

@@ -15,9 +15,36 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
+
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { IoClose } from "react-icons/io5";
 import { Separator } from "../ui/separator";
 import Link from "next/link";
+import { FaInstagram, FaTwitter } from "react-icons/fa6";
+
+const categoryList = [
+  {
+    name: "rings",
+    link: "/productByCategory/rings",
+  },
+  {
+    name: "necklaces",
+    link: "/productByCategory/necklaces",
+  },
+  {
+    name: "bracelets",
+    link: "/productByCategory/bracelets",
+  },
+  {
+    name: "earrings",
+    link: "/productByCategory/earrings",
+  },
+];
 
 const MobileNav = () => {
   const [open, setOpen] = useState(false);
@@ -37,32 +64,38 @@ const MobileNav = () => {
 
       <nav className="flex justify-between items-center px-4 py-4 sticky top-0 z-10 bg-ivory">
         <div className="w-1/3 relative flex items-center justify-start">
-          {/* <IoIosMenu
-            size={24}
-            onClick={() => setActive(true)}
-          /> */}
-
-          <Drawer
-            direction="left"
-            open={open}
-            onOpenChange={setOpen}
-          >
+          <Drawer direction="left" open={open} onOpenChange={setOpen}>
             <DrawerTrigger>
-              <IoIosMenu className="size-auto text-darkTeal border rounded-full p-1" />
+              <IoIosMenu className="size-4.5 text-darkTeal" />
             </DrawerTrigger>
-            <DrawerContent className="font-dmSans bg-darkTeal text-ivory">
+            <DrawerContent className="bg-darkTeal text-ivory">
               <DrawerClose className="flex items-end justify-end pt-5 pr-5">
                 <IoClose size={24} />
               </DrawerClose>
               <DrawerHeader className="font-urbanist gap-2 *:text-lg *:font-normal *:text-ivory">
-                <DrawerTitle
-                  onClick={() => {
-                    setOpen(false);
-                    ScrollIntoView("categories-section");
-                  }}
-                >
-                  Categories
-                </DrawerTitle>
+                <Accordion type="single" collapsible>
+                  <AccordionItem value="item-1" className="px-0">
+                    <AccordionTrigger className="text-lg py-0 font-normal *:stroke-ivory justify-start items-center *:translate-0 gap-1">
+                      Categories
+                    </AccordionTrigger>
+
+                    {categoryList.map((category, _) => (
+                      <AccordionContent
+                        key={_}
+                        className="py-1 pl-3"
+                        onClick={() => setOpen(false)}
+                      >
+                        <Link
+                          className="text-lg capitalize"
+                          href={category.link}
+                        >
+                          {category.name}
+                        </Link>
+                      </AccordionContent>
+                    ))}
+                  </AccordionItem>
+                </Accordion>
+
                 <Separator />
 
                 <DrawerTitle
@@ -94,26 +127,33 @@ const MobileNav = () => {
                 </DrawerTitle>
                 <Separator />
               </DrawerHeader>
-              <DrawerFooter>Social Links</DrawerFooter>
+              <DrawerFooter>
+                <ul className="flex **:size-5 gap-3 **:stroke-1 **:fill-ivory">
+                  <li>
+                    <FaInstagram />
+                  </li>
+                  <li>
+                    <FaTwitter />
+                  </li>
+                </ul>
+              </DrawerFooter>
             </DrawerContent>
           </Drawer>
         </div>
 
         <div className="w-1/3 flex items-center justify-center">
-          <Image
-            src={logo}
-            alt="logo"
-            className="h-full"
-          />
+          <Link href="/">
+            <Image src={logo} alt="logo" className="h-full" />
+          </Link>
         </div>
 
         <div className="w-1/3 flex items-center justify-end">
-          <ul className="flex space-x-2 text-black-1 items-center justify-center *:cursor-pointer">
+          <ul className="flex gap-3 text-black-1 items-center justify-center *:cursor-pointer">
             <li>
-              <LiaShoppingBagSolid className="size-auto p-1 border rounded-full text-darkTeal" />
+              <LiaShoppingBagSolid className="size-4.5 text-darkTeal" />
             </li>
             <li>
-              <HiUser className="size-auto p-1 border rounded-full text-darkTeal" />
+              <HiUser className="size-4.5 text-darkTeal" />
             </li>
           </ul>
         </div>
