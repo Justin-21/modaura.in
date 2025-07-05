@@ -48,10 +48,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${satoshi.variable} ${urbanist.variable} ${melodrama.variable} ${dmSans.variable} bg-ivory antialiased relative`}
+        className={`${geistSans.variable} ${geistMono.variable} ${satoshi.variable} ${urbanist.variable} ${melodrama.variable} ${dmSans.variable} bg-ivory antialiased relative flex flex-col items-center w-screen min-h-dvh`}
       >
         <Navbar />
-        <main className="font-dmSans min-h-screen w-screen overflow-hidden flex flex-col space-y-10 lg:space-y-16 px-5 lg:px-10 items-start justify-start">
+        <main className="font-dmSans min-h-fit w-screen overflow-hidden flex flex-col space-y-10 lg:space-y-16 px-5 lg:px-10 items-start justify-start">
           {children}
         </main>
         <Footer />

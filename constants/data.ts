@@ -76,4 +76,23 @@ const products = [
   },
 ];
 
-export { FAQs, products };
+const cartProducts = [
+  {
+    displayImage: "/products/product 1.jpg",
+    hoverImage: "/products/product 1.jpg",
+    title: "Gold Plated Earrings",
+    description: "Beautiful gold plated earrings with intricate designs.",
+    sellingPrice: "999",
+    costPrice: "1999",
+  },
+  {
+    displayImage: "/products/product 6.jpg",
+    hoverImage: "/products/product 6.jpg",
+    title: "Gold Plated Earrings",
+    description: "Beautiful gold plated earrings with intricate designs.",
+    sellingPrice: "999",
+    costPrice: "1999",
+  },
+];
+
+export { FAQs, products, cartProducts };

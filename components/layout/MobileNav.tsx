@@ -58,7 +58,7 @@ const MobileNav = () => {
 
   return (
     <>
-      <div className="py-2 bg-darkTeal text-center text-ivory text-xs lg:text-base font-dmSans border-b border-neutral-400">
+      <div className="w-full py-2 bg-darkTeal text-center text-ivory text-xs lg:text-base font-dmSans border-b border-neutral-400">
         New Offers Of The Day!!!
       </div>
 
@@ -150,7 +150,9 @@ const MobileNav = () => {
         <div className="w-1/3 flex items-center justify-end">
           <ul className="flex gap-3 text-black-1 items-center justify-center *:cursor-pointer">
             <li>
-              <LiaShoppingBagSolid className="size-4.5 text-darkTeal" />
+              <Link href="/cart">
+                <LiaShoppingBagSolid className="size-4.5 text-darkTeal" />
+              </Link>
             </li>
             <li>
               <HiUser className="size-4.5 text-darkTeal" />

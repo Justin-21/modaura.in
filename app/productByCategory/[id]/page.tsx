@@ -7,7 +7,7 @@ const CategoryProduct = ({ params }: { params: Promise<{ id: string }> }) => {
 
   return (
     <>
-      <div>ProductByCategory Page {id}</div>
+      <div className="h-dvh">ProductByCategory Page {id}</div>
     </>
   );
 };

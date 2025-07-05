@@ -6,7 +6,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { HiUser } from "react-icons/hi";
 import { IoIosArrowDown } from "react-icons/io";
-import { LiaShoppingBagSolid } from "react-icons/lia";
+// import { LiaShoppingBagSolid } from "react-icons/lia";
+import { BsHandbagFill } from "react-icons/bs";
 // import { Separator } from "../ui/separator";
 import MobileNav from "./MobileNav";
 
@@ -31,7 +32,7 @@ const Navbar = () => {
   return width > 768 ? (
     <>
       {/* Announcements */}
-      <div className="flex items-center justify-center border-b border-neutral-400 py-3 text-center text-ivory bg-darkTeal text-sm font-urbanist">
+      <div className="w-full flex items-center justify-center border-b border-neutral-400 py-3 text-center text-ivory bg-darkTeal text-sm font-urbanist">
         New Offers Of The Day!!!
       </div>
 
@@ -49,15 +50,12 @@ const Navbar = () => {
                   <li>
                     <Link href="/productByCategory/rings">rings</Link>
                   </li>
-                  {/* <Separator className="bg-neutral-500" /> */}
                   <li>
                     <Link href="/productByCategory/necklaces">necklaces</Link>
                   </li>
-                  {/* <Separator className="bg-neutral-500" /> */}
                   <li>
                     <Link href="/productByCategory/bracelets">bracelets</Link>
                   </li>
-                  {/* <Separator className="bg-neutral-500" /> */}
                   <li>
                     <Link href="/productByCategory/earrings">earrings</Link>
                   </li>
@@ -91,8 +89,14 @@ const Navbar = () => {
         <div className="w-1/3 flex items-center justify-end">
           <ul className="flex space-x-5 text-black-1 items-center justify-center *:cursor-pointer">
             <li className="">
-              <LiaShoppingBagSolid className="size-auto lg:size-6 fill-darkTeal" />
+              <Link href="/cart">
+                <BsHandbagFill className="size-auto lg:size-5 fill-darkTeal" />
+              </Link>
             </li>
+
+            {/* 
+              check for the current user from session in next-auth, if user is logged in, redirect to user profile else redirect to sign-in page
+            */}
             <li className="">
               <HiUser className="size-auto lg:size-6 fill-darkTeal" />
             </li>

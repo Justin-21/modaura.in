@@ -67,17 +67,31 @@ export async function GET(request: NextRequest) {
     const url = new URL(request.url);
     const id = url.searchParams.get("id");
     const allFlag = url.searchParams.get("all");
+    const category = url.searchParams.get("category");
 
     if (id) {
       const product = await Products.findById(id);
       if (!product) {
-        return NextResponse.json({ error: "Product not found" }, { status: 404 });
+        return NextResponse.json(
+          { error: "Product not found" },
+          { status: 404 }
+        );
       }
       return NextResponse.json(product, { status: 200 });
     }
 
+    if (category) {
+      const product = await Products.find();
+      console.log(category, product);
+      const res = product.filter((item) => {
+        return item.category.toUpperCase() == category.toUpperCase();
+      });
+      return NextResponse.json(res, { status: 200 });
+    }
+
     if (allFlag === "true") {
       const products = await Products.find();
+      console.log(products);
       return NextResponse.json(products, { status: 200 });
     }
 
@@ -87,7 +101,10 @@ export async function GET(request: NextRequest) {
     );
   } catch (error) {
     console.log("Product Fetch Failed", error);
-    return NextResponse.json({ error: "Failed to fetch product(s)" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Failed to fetch product(s)" },
+      { status: 500 }
+    );
   }
 }
 
@@ -98,7 +115,10 @@ export async function PUT(request: NextRequest) {
     const { id, name, category, description, price, images } = body;
 
     if (!id) {
-      return NextResponse.json({ error: "Product ID is required" }, { status: 400 });
+      return NextResponse.json(
+        { error: "Product ID is required" },
+        { status: 400 }
+      );
     }
 
     const updatedProduct = await Products.findByIdAndUpdate(
@@ -117,7 +137,10 @@ export async function PUT(request: NextRequest) {
     );
   } catch (error) {
     console.log("Product Update Failed", error);
-    return NextResponse.json({ error: "Failed to update product" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Failed to update product" },
+      { status: 500 }
+    );
   }
 }
 
@@ -128,7 +151,10 @@ export async function DELETE(request: NextRequest) {
     const id = url.searchParams.get("id");
 
     if (!id) {
-      return NextResponse.json({ error: "Product ID is required" }, { status: 400 });
+      return NextResponse.json(
+        { error: "Product ID is required" },
+        { status: 400 }
+      );
     }
 
     const deletedProduct = await Products.findByIdAndDelete(id);
@@ -137,10 +163,15 @@ export async function DELETE(request: NextRequest) {
       return NextResponse.json({ error: "Product not found" }, { status: 404 });
     }
 
-    return NextResponse.json({ message: "Product deleted successfully" }, { status: 200 });
+    return NextResponse.json(
+      { message: "Product deleted successfully" },
+      { status: 200 }
+    );
   } catch (error) {
     console.log("Product Delete Failed", error);
-    return NextResponse.json({ error: "Failed to delete product" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Failed to delete product" },
+      { status: 500 }
+    );
   }
 }
-

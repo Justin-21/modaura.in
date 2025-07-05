@@ -1,11 +1,25 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import displayImage from "@/public/silver-cube-bracelet.png";
 import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures";
 import ProductCard from "../product/ProductCard";
 import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
+import { useEffect, useState } from "react";
 
 const Necklaces = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    async function fetchProducts() {
+      const res = await fetch(`/api/products?category=necklace`);
+      debugger;
+      const data = await res.json();
+      setData(data);
+    }
+    fetchProducts();
+  }, []);
+
   return (
     <section className="w-full">
       <div
@@ -25,15 +39,12 @@ const Necklaces = () => {
             className="w-full"
           >
             <CarouselContent className="lg:w-full h-full lg:justify-between -ml-0">
-              {Array.from({ length: 5 }).map((_, index) => (
-                <CarouselItem
-                  className="pl-0"
-                  key={index}
-                >
+              {data.map((item: any, index) => (
+                <CarouselItem className="pl-0" key={index}>
                   <ProductCard
                     key={index}
                     prodId={index}
-                    title={"Silver Cube Bracelet " + (index + 1).toString()}
+                    title={item.name}
                     displayImage={displayImage}
                     costPrice="Rs. 1999"
                     sellingPrice="Rs. 999"
