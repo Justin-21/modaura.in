@@ -30,7 +30,7 @@ export async function POST(request: NextRequest) {
     //wait for database connection
     await connectDB();
 
-    const existingProduct = await Products.find({ name });
+    const existingProduct = await Products.findOne({ name });
 
     if (existingProduct) {
       return NextResponse.json(
