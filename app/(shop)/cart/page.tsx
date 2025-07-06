@@ -8,6 +8,7 @@ import { useState } from "react";
 import { BsHandbag } from "react-icons/bs";
 
 const CartPage = () => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [cartItem, setCartItem] = useState(1);
   const [promoCode, setPromoCode] = useState("");
 
