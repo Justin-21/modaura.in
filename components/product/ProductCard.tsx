@@ -5,9 +5,10 @@ import { BiCart } from "react-icons/bi";
 import CallToActionBtn from "../ui/callToActionBtn";
 import { IoMdHeartEmpty } from "react-icons/io";
 import Link from "next/link";
+import mongoose from "mongoose";
 
-type Props = {
-  prodId: number;
+type ProductCardProps = {
+  prodId: mongoose.Types.ObjectId;
   displayImage: string | StaticImageData;
   title: string;
   sellingPrice: string;
@@ -20,12 +21,15 @@ const ProductCard = ({
   title,
   costPrice,
   sellingPrice,
-}: Props) => {
+}: ProductCardProps) => {
   // const [active, setActive] = useState(false);
 
   return (
-    <Link href={`/product/${prodId}`}>
-      <div className="w-fit h-fit flex flex-col items-center justify-center space-y-1 lg:space-y-2">
+    <div className="flex flex-col items-center justify-center space-y-1 lg:space-y-2">
+      <Link
+        href={`/product/${prodId}`}
+        className="w-fit h-fit flex flex-col items-center justify-center space-y-1 lg:space-y-2"
+      >
         <div
           className="size-[150px] lg:size-[250px] 2xl:size-[300px] bg-neutral-200 rounded-lg lg:rounded-xl overflow-hidden flex items-center justify-center cursor-pointer transition-all duration-200 ease-in-out relative"
           // onMouseEnter={() => setActive(true)}
@@ -64,18 +68,18 @@ const ProductCard = ({
             </h3>
           </div>
         </div>
+      </Link>
 
-        {/* Add to cart button */}
-        <CallToActionBtn
-          text="Add to Cart"
-          variant="link"
-          href="#"
-          className="w-full flex items-center justify-center gap-2 bg-darkTeal text-ivory rounded-lg lg:rounded-xl py-2 lg:py-3 lg:px-4 hover:opacity-90 transition-all duration-200 ease-in-out"
-        >
-          <BiCart size={16} />
-        </CallToActionBtn>
-      </div>
-    </Link>
+      {/* Add to cart button */}
+      <CallToActionBtn
+        text="Add to Cart"
+        variant="link"
+        href="#"
+        className="w-full flex items-center justify-center gap-2 bg-darkTeal text-ivory rounded-lg lg:rounded-xl py-2 lg:py-3 lg:px-4 hover:opacity-90 transition-all duration-200 ease-in-out"
+      >
+        <BiCart size={16} />
+      </CallToActionBtn>
+    </div>
   );
 };
 

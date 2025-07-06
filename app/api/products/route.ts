@@ -82,7 +82,6 @@ export async function GET(request: NextRequest) {
 
     if (category) {
       const product = await Products.find();
-      console.log(category, product);
       const res = product.filter((item) => {
         return item.category.toUpperCase() == category.toUpperCase();
       });
@@ -91,7 +90,6 @@ export async function GET(request: NextRequest) {
 
     if (allFlag === "true") {
       const products = await Products.find();
-      console.log(products);
       return NextResponse.json(products, { status: 200 });
     }
 

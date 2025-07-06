@@ -1,11 +1,18 @@
 "use client";
 
-import displayImage from "@/public/silver-cube-bracelet.png";
+// import displayImage from "@/public/silver-cube-bracelet.png";
 import ProductCard from "../product/ProductCard";
 import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures";
+import useProductStore from "@/app/stores/useProductStore";
 
 const Bracelets = () => {
+  const { products } = useProductStore();
+
+  const bracelets = products.filter(
+    (product) => product.category.toUpperCase() === "BRACELET"
+  );
+
   return (
     <section className="w-full">
       <div
@@ -25,18 +32,14 @@ const Bracelets = () => {
             className="w-full"
           >
             <CarouselContent className="lg:w-full h-full lg:justify-between -ml-0">
-              {Array.from({ length: 5 }).map((_, index) => (
-                <CarouselItem
-                  className="pl-0"
-                  key={index}
-                >
+              {bracelets.slice(0, 6).map((bracelet) => (
+                <CarouselItem className="pl-0" key={bracelet._id.toString()}>
                   <ProductCard
-                    key={index}
-                    prodId={index}
-                    title={"Silver Cube Bracelet " + (index + 1).toString()}
-                    displayImage={displayImage}
-                    costPrice="Rs. 1999"
-                    sellingPrice="Rs. 999"
+                    prodId={bracelet._id}
+                    title={bracelet.name}
+                    displayImage={bracelet.images[0]}
+                    costPrice={`Rs. ${bracelet.price.mrp}`}
+                    sellingPrice={`Rs. ${bracelet.price.sellingPrice}`}
                   />
                 </CarouselItem>
               ))}

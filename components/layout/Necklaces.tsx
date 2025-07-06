@@ -1,24 +1,19 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+// /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import displayImage from "@/public/silver-cube-bracelet.png";
+// import displayImage from "@/public/silver-cube-bracelet.png";
 import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures";
 import ProductCard from "../product/ProductCard";
 import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
-import { useEffect, useState } from "react";
+
+import useProductStore from "@/app/stores/useProductStore";
 
 const Necklaces = () => {
-  const [data, setData] = useState([]);
+  const { products } = useProductStore();
 
-  useEffect(() => {
-    async function fetchProducts() {
-      const res = await fetch(`/api/products?category=necklace`);
-      debugger;
-      const data = await res.json();
-      setData(data);
-    }
-    fetchProducts();
-  }, []);
+  const necklaces = products.filter(
+    (product) => product.category.toUpperCase() === "NECKLACE"
+  );
 
   return (
     <section className="w-full">
@@ -39,15 +34,14 @@ const Necklaces = () => {
             className="w-full"
           >
             <CarouselContent className="lg:w-full h-full lg:justify-between -ml-0">
-              {data.map((item: any, index) => (
-                <CarouselItem className="pl-0" key={index}>
+              {necklaces.slice(0, 6).map((necklace) => (
+                <CarouselItem className="pl-0" key={necklace._id.toString()}>
                   <ProductCard
-                    key={index}
-                    prodId={index}
-                    title={item.name}
-                    displayImage={displayImage}
-                    costPrice="Rs. 1999"
-                    sellingPrice="Rs. 999"
+                    prodId={necklace._id}
+                    title={necklace.name}
+                    displayImage={necklace.images[0]}
+                    costPrice={`Rs. ${necklace.price.mrp}`}
+                    sellingPrice={`Rs. ${necklace.price.sellingPrice}`}
                   />
                 </CarouselItem>
               ))}

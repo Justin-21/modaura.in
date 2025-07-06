@@ -7,7 +7,7 @@ import { IoMdAdd, IoMdHeart } from "react-icons/io";
 import { MdCancel, MdLocalShipping } from "react-icons/md";
 import { RiSubtractLine } from "react-icons/ri";
 
-import { FAQs, products } from "@/constants/data";
+import { FAQs } from "@/constants/data";
 
 import Popular from "@/components/layout/Popular";
 import {
@@ -22,15 +22,33 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import { useState } from "react";
+import { use, useEffect, useState } from "react";
 import { BiSolidOffer } from "react-icons/bi";
 import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures";
+import mongoose from "mongoose";
+import { productTypes } from "@/models/Product";
 
-const Page = () => {
-  // const params = useParams();
+const Page = ({
+  params,
+}: {
+  params: Promise<{ id: mongoose.Types.ObjectId }>;
+}) => {
+  const { id } = use(params);
+  const [product, setProduct] = useState<productTypes>();
+
   const [quantity, setQuantity] = useState(1);
 
   const [api, setApi] = useState<CarouselApi>();
+
+  useEffect(() => {
+    async function getProduct() {
+      const res = await fetch(`/api/products?id=${id}`);
+      const data = await res.json();
+      console.log(data);
+      setProduct(data);
+    }
+    getProduct();
+  }, [id]);
 
   return (
     <>
@@ -39,10 +57,10 @@ const Page = () => {
         <div className="w-full sm:max-w-max sm:sticky sm:top-0">
           <div className="w-full flex max-lg:flex-col-reverse max-lg:gap-2 lg:space-x-2.5">
             <div className="flex lg:flex-col space-x-2 xl:space-y-2 overflow-scroll">
-              {products.map((item, index) => (
+              {product?.images.map((image, index) => (
                 <Image
-                  key={index}
-                  src={item.displayImage}
+                  key={image}
+                  src={image}
                   alt="product image"
                   width={540}
                   height={540}
@@ -63,14 +81,11 @@ const Page = () => {
               className="size-full xl:w-[540px] aspect-square overflow-hidden"
             >
               <CarouselContent className="-ml-0 aspect-square">
-                {products.map((item, index) => (
-                  <CarouselItem
-                    className="pl-0"
-                    key={index}
-                  >
+                {product?.images.map((image, index) => (
+                  <CarouselItem className="pl-0" key={index}>
                     <Image
                       key={index}
-                      src={item.displayImage}
+                      src={image}
                       alt="product image"
                       width={540}
                       height={540}
@@ -94,17 +109,19 @@ const Page = () => {
           <ul className="*:tracking-wide space-y-2 lg:space-y-5">
             <li className="flex flex-col">
               <span className="font-semibold text-2xl lg:text-4xl">
-                Silver Cube Bracelet
+                {product?.name}
               </span>
               <span className="font-medium text-neutral-500">
-                A bright shiny cubical bracelet fot the Gen-zs.
+                {product?.description}
               </span>
             </li>
             <li className="font-medium">Reviews</li>
             <li className="font-bold flex items-baseline space-x-3">
-              <span className="text-black-1 text-2xl">Rs. 1999</span>
+              <span className="text-black-1 text-2xl">
+                Rs. {product?.price.mrp}
+              </span>
               <span className="text-darkTeal text-lg line-through">
-                Rs. 999
+                Rs. {product?.price.sellingPrice}
               </span>
             </li>
           </ul>
@@ -211,10 +228,7 @@ const Page = () => {
             <AccordionItem value="item-1">
               <AccordionTrigger>
                 <div className="flex items-center space-x-2">
-                  <MdCancel
-                    size={20}
-                    className="text-red-600"
-                  />
+                  <MdCancel size={20} className="text-red-600" />
                   <span className="font-semibold">Cancellation Policies</span>
                 </div>
               </AccordionTrigger>
@@ -226,10 +240,7 @@ const Page = () => {
             <AccordionItem value="item-2">
               <AccordionTrigger>
                 <div className="flex items-center space-x-2">
-                  <MdLocalShipping
-                    size={20}
-                    className="text-darkTeal"
-                  />
+                  <MdLocalShipping size={20} className="text-darkTeal" />
                   <span className="font-semibold">Shipping & Returns</span>
                 </div>
               </AccordionTrigger>
@@ -254,10 +265,7 @@ const Page = () => {
           className="space-y-2 *:border-b *:border-neutral-400"
         >
           {FAQs.map((faq, index) => (
-            <AccordionItem
-              key={index}
-              value={`item-${index}`}
-            >
+            <AccordionItem key={index} value={`item-${index}`}>
               <AccordionTrigger className="flex-row-reverse justify-end">
                 <span className="font-medium">{faq.query}</span>
               </AccordionTrigger>

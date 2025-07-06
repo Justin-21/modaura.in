@@ -155,6 +155,8 @@ const CartPage = () => {
                   apply code
                 </button>
               </div>
+
+              {promoCode}
             </div>
           </div>
         </div>
