@@ -8,7 +8,7 @@ import Link from "next/link";
 import mongoose from "mongoose";
 
 type ProductCardProps = {
-  prodId: mongoose.Types.ObjectId;
+  prodId: mongoose.Types.ObjectId | number;
   displayImage: string | StaticImageData;
   title: string;
   sellingPrice: string;

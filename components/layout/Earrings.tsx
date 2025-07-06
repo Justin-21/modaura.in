@@ -26,10 +26,7 @@ const Earrings = () => {
           >
             <CarouselContent className="lg:w-full h-full lg:justify-between -ml-0">
               {Array.from({ length: 5 }).map((_, index) => (
-                <CarouselItem
-                  className="pl-0"
-                  key={index}
-                >
+                <CarouselItem className="pl-0" key={index}>
                   <ProductCard
                     key={index}
                     prodId={index}
