@@ -95,4 +95,23 @@ const cartProducts = [
   },
 ];
 
-export { FAQs, products, cartProducts };
+const homePageSections = [
+  {
+    section: "Necklace",
+    sectionId: "necklace-section",
+  },
+  {
+    section: "Bracelet",
+    sectionId: "bracelet-section",
+  },
+  {
+    section: "Earring",
+    sectionId: "earring-section",
+  },
+  {
+    section: "Ring",
+    sectionId: "ring-section",
+  },
+];
+
+export { FAQs, products, cartProducts, homePageSections };
