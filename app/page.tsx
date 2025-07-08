@@ -1,12 +1,10 @@
 "use client";
 
-import Bracelets from "@/components/layout/Bracelets";
-import Earrings from "@/components/layout/Earrings";
 import Hero from "@/components/layout/Hero";
+import HomePageSection from "@/components/layout/HomePageSections";
 import Latest from "@/components/layout/Latest";
-import Necklaces from "@/components/layout/Necklaces";
 import Popular from "@/components/layout/Popular";
-import Rings from "@/components/layout/Rings";
+import { homePageSections } from "@/constants/data";
 import { useEffect } from "react";
 import useProductStore from "./stores/useProductStore";
 
@@ -27,10 +25,14 @@ export default function Home() {
       <Hero />
       <Popular />
       <Latest />
-      <Rings />
-      <Necklaces />
-      <Bracelets />
-      <Earrings />
+
+      {homePageSections.map((item, index) => (
+        <HomePageSection
+          key={index}
+          section={item.section}
+          sectionId={item.sectionId}
+        />
+      ))}
     </>
   );
 }
