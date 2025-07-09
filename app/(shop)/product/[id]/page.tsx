@@ -44,7 +44,7 @@ const Page = ({
     async function getProduct() {
       const res = await fetch(`/api/products?id=${id}`);
       const data = await res.json();
-      console.log(data);
+
       setProduct(data);
     }
     getProduct();
@@ -115,13 +115,13 @@ const Page = ({
                 {product?.description}
               </span>
             </li>
-            <li className="font-medium">Reviews</li>
+            <li className="font-medium">No Reviews</li>
             <li className="font-bold flex items-baseline space-x-3">
               <span className="text-black-1 text-2xl">
-                Rs. {product?.price.mrp}
+                Rs. {product?.price.sellingPrice}
               </span>
               <span className="text-darkTeal text-lg line-through">
-                Rs. {product?.price.sellingPrice}
+                Rs. {product?.price.mrp}
               </span>
             </li>
           </ul>

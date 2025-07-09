@@ -6,6 +6,7 @@ import ProductCard from "../product/ProductCard";
 import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 
 import useProductStore from "@/app/stores/useProductStore";
+import Link from "next/link";
 
 const HomePageSection = ({
   section,
@@ -21,10 +22,10 @@ const HomePageSection = ({
   );
 
   return (
-    <section className="w-full place-items-center space-y-5">
+    <section className="w-full space-y-5">
       <div
         id={sectionId}
-        className="w-full flex flex-col items-center justify-center space-y-3 lg:space-y-8 text-center"
+        className="w-full flex flex-col space-y-3 lg:space-y-8 text-center"
       >
         <h3 className="text-xl lg:text-5xl tracking-tighter">
           Shop For <span className="font-semibold">{section}s</span>
@@ -56,9 +57,12 @@ const HomePageSection = ({
           </Carousel>
         </div>
 
-        <div className="cursor-pointer transition-all font-urbanist hover:-translate-y-0.5 border border-neutral-400 px-4 py-2 hover:border-black-1">
+        <Link
+          href={`/productByCategory/${section}`}
+          className="cursor-pointer transition-all font-urbanist hover:-translate-y-0.5 border border-neutral-400 px-2 py-2 lg:px-4 lg:py-2 hover:border-black-1 w-fit place-self-center max-sm:text-sm"
+        >
           View All {section}s
-        </div>
+        </Link>
       </div>
     </section>
   );
