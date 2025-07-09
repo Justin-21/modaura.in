@@ -18,7 +18,7 @@ const ProductCard = ({ _id, name, price, images }: productTypes) => {
         href={`/product/${_id}`}
         className="w-full h-full flex flex-col items-center justify-center space-y-1 lg:space-y-2"
       >
-        <div className="size-[calc(100dvw/2-6vw)] md:size-[200px] lg:size-[250px] 2xl:size-[300px] bg-neutral-200 rounded-lg lg:rounded-xl overflow-hidden flex items-center justify-center cursor-pointer transition-all duration-200 ease-in-out relative">
+        <div className="size-[calc(100dvw/2-30px)] md:size-[200px] lg:size-[250px] 2xl:size-[300px] bg-neutral-200 rounded-lg lg:rounded-xl overflow-hidden flex items-center justify-center cursor-pointer transition-all duration-200 ease-in-out relative">
           {/* image of the product */}
           <Image
             src={images ? images[0] : displayImage}
