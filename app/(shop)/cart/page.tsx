@@ -2,7 +2,6 @@
 
 import useCartStore from "@/app/stores/useCartStore";
 import { Separator } from "@/components/ui/separator";
-import { cartProducts } from "@/constants/data";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -10,12 +9,12 @@ import { BsHandbag } from "react-icons/bs";
 import { LuMinus, LuPlus } from "react-icons/lu";
 
 const CartPage = () => {
-  const { cart, removeFromCart, updateQuantity, clearCart } = useCartStore();
+  const { cart, removeFromCart, clearCart } = useCartStore();
   const [cartItem, setCartItem] = useState(cart.length);
   const [promoCode, setPromoCode] = useState("");
 
-  const subtotal =
-    parseInt(cartProducts[0].costPrice) + parseInt(cartProducts[1].costPrice);
+  //calculate cart value
+  const subtotal = 0;
 
   useEffect(() => {
     setCartItem(cart.length);
