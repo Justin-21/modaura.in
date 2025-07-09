@@ -1,11 +1,18 @@
 "use client";
 
-import displayImage from "@/public/silver-cube-bracelet.png";
+import useProductStore from "@/app/stores/useProductStore";
+import { latestProducts } from "@/constants/data";
 import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures";
 import ProductCard from "../product/ProductCard";
 import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 
 const Latest = () => {
+  const { products } = useProductStore();
+
+  const items = products.filter((product) =>
+    latestProducts.includes(product._id.toString())
+  );
+
   return (
     <section className="w-full">
       <div
@@ -25,18 +32,15 @@ const Latest = () => {
             className="w-full"
           >
             <CarouselContent className="lg:w-full h-full lg:justify-between -ml-0">
-              {Array.from({ length: 5 }).map((_, index) => (
-                <CarouselItem
-                  className="pl-0"
-                  key={index}
-                >
+              {items.map((item, index) => (
+                <CarouselItem className="pl-0" key={index}>
                   <ProductCard
-                    key={index}
-                    prodId={index}
-                    title={"Latest " + (index + 1).toString()}
-                    displayImage={displayImage}
-                    costPrice="Rs. 1999"
-                    sellingPrice="Rs. 999"
+                    _id={item._id}
+                    name={item.name}
+                    images={item.images}
+                    price={item.price}
+                    category={""}
+                    description={""}
                   />
                 </CarouselItem>
               ))}

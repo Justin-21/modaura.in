@@ -1,19 +1,25 @@
 "use client";
 
+import useCartStore from "@/app/stores/useCartStore";
 import { Separator } from "@/components/ui/separator";
 import { cartProducts } from "@/constants/data";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BsHandbag } from "react-icons/bs";
+import { LuMinus, LuPlus } from "react-icons/lu";
 
 const CartPage = () => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [cartItem, setCartItem] = useState(1);
+  const { cart, removeFromCart, updateQuantity, clearCart } = useCartStore();
+  const [cartItem, setCartItem] = useState(cart.length);
   const [promoCode, setPromoCode] = useState("");
 
   const subtotal =
     parseInt(cartProducts[0].costPrice) + parseInt(cartProducts[1].costPrice);
+
+  useEffect(() => {
+    setCartItem(cart.length);
+  }, [cart]);
 
   return (
     <>
@@ -41,76 +47,78 @@ const CartPage = () => {
         </div>
       ) : (
         <div className="w-full h-full flex justify-between gap-5 font-urbanist">
-          {/* section to display all the details of the customer */}
-          <div className="w-full h-full flex flex-col space-y-2">
-            <span className="text-3xl font-medium">Delivery Information</span>
-
-            <form>
-              <label htmlFor="full-name">Full Name</label>
-              <input
-                type="text"
-                id="full-name"
-                className="py-2 w-full rounded-xl px-3 placeholder:text-sm focus:outline-none border border-neutral-300 focus:bg-white"
-                onChange={() => {}}
-                placeholder="Tatiya Vicchu"
-              />
-
-              <label htmlFor="email">Email</label>
-              <input
-                type="email"
-                id="email"
-                className="py-2 w-full rounded-xl px-3 placeholder:text-sm focus:outline-none border border-neutral-300 focus:bg-white"
-                onChange={() => {}}
-                placeholder="tatiya@gmail.com"
-              />
-
-              <label htmlFor="phone-number">Phone Number</label>
-              <input
-                type="tel"
-                id="phone-number"
-                className="py-2 w-full rounded-xl px-3 placeholder:text-sm focus:outline-none border border-neutral-300 focus:bg-white"
-                onChange={() => {}}
-                placeholder="+91 9876543210"
-              />
-            </form>
-          </div>
-
           {/* item subtotal section */}
-          <div className="w-full h-full bg-[#ececec] rounded-2xl flex flex-col gap-5 p-10">
+          <div className="w-2/3 h-full bg-[#ececec] rounded-2xl flex flex-col gap-5 p-10">
             <span className="text-3xl font-medium">Cart Summary</span>
 
             {/* Image section to display product and quantity */}
-            <div className="flex flex-col gap-5">
-              {cartProducts.map((product, _) => (
-                <div
-                  key={_}
-                  className="bg-white rounded-3xl overflow-hidden flex items-center gap-5"
-                >
+
+            {cart.map((product) => (
+              <div
+                key={product?._id?.toString()}
+                className="bg-white rounded-3xl overflow-hidden flex w-full h-full"
+              >
+                <div className="flex w-full h-full p-5">
                   <Image
-                    src={product.displayImage}
-                    alt="p-1"
+                    src={product.images && product.images[0]}
+                    alt={product.name}
                     width={200}
                     height={200}
-                    className="size-[150px]"
+                    className="size-[150px] rounded-lg"
                   />
 
                   {/* Details of the product */}
-                  <div className="flex flex-col">
-                    <span className="font-medium text-sm">{product.title}</span>
-                    <span className="font-light text-sm line-through">
-                      ₹ {product.costPrice}
-                    </span>
-                    <span className="font-semibold text-xl">
-                      ₹ {product.sellingPrice}
-                    </span>
+                  <div className="w-full flex flex-col items-start justify-between p-5">
+                    <div className="w-full flex items-start justify-between">
+                      <div className="flex flex-col">
+                        <span className="font-medium">{product.name}</span>
+                        <span className="font-light text-sm line-through">
+                          ₹ {product?.price?.mrp}
+                        </span>
+                        <span className="font-semibold text-xl">
+                          ₹ {product?.price?.sellingPrice}
+                        </span>
+                      </div>
+
+                      <div className="flex items-center justify-between gap-1">
+                        <button className="p-2 rounded-full border cursor-pointer hover:border-neutral-500">
+                          <LuMinus />
+                        </button>
+                        <div className="px-5 rounded-full border py-1">
+                          {product.quantity}
+                        </div>
+                        <button className="p-2 rounded-full border cursor-pointer hover:border-neutral-500">
+                          <LuPlus />
+                        </button>
+                      </div>
+                    </div>
+
+                    <div
+                      className="cursor-pointer font-semibold"
+                      onClick={() => removeFromCart(product._id.toString())}
+                    >
+                      Remove
+                    </div>
                   </div>
                 </div>
-              ))}
+
+                <div></div>
+              </div>
+            ))}
+
+            <div className="w-full flex justify-end">
+              <button
+                onClick={() => clearCart()}
+                className="bg-red-500 rounded-full px-4 py-2 w-fit text-ivory cursor-pointer hover:bg-red-600 transition"
+              >
+                Clear Cart
+              </button>
             </div>
+          </div>
 
-            <Separator className="bg-neutral-300" />
-
-            <ul className="*:flex flex flex-col *:justify-between gap-3">
+          {/* Subtotal Section */}
+          <div className="w-1/3">
+            <ul className="*:flex flex flex-col *:justify-between gap-3 w-full">
               <li>
                 <p>Subtotal</p>
                 <p>₹ {subtotal}</p>

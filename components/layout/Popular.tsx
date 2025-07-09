@@ -1,11 +1,17 @@
 "use client";
 
-import { products } from "@/constants/data";
+import useProductStore from "@/app/stores/useProductStore";
+import { popularProducts } from "@/constants/data";
 import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures";
 import ProductCard from "../product/ProductCard";
 import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 
 const Popular = () => {
+  const { products } = useProductStore();
+
+  const items = products.filter((product) =>
+    popularProducts.includes(product._id.toString())
+  );
   return (
     <section className="w-full">
       <div
@@ -25,18 +31,15 @@ const Popular = () => {
             className="w-full"
           >
             <CarouselContent className="w-full h-full lg:justify-between -ml-0">
-              {products.map((item, index) => (
-                <CarouselItem
-                  className="pl-0"
-                  key={index}
-                >
+              {items.map((item, index) => (
+                <CarouselItem className="pl-0" key={index}>
                   <ProductCard
-                    key={index}
-                    prodId={index}
-                    title={item.title}
-                    displayImage={item.displayImage}
-                    costPrice={item.costPrice}
-                    sellingPrice={item.sellingPrice}
+                    _id={item._id}
+                    name={item.name}
+                    images={item.images}
+                    price={item.price}
+                    category={""}
+                    description={""}
                   />
                 </CarouselItem>
               ))}

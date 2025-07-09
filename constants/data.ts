@@ -25,74 +25,22 @@ const FAQs = [
   },
 ];
 
-const products = [
-  {
-    displayImage: "/products/product 1.jpg",
-    hoverImage: "/products/product 1.jpg",
-    title: "Gold Plated Earrings",
-    description: "Beautiful gold plated earrings with intricate designs.",
-    sellingPrice: "₹999",
-    costPrice: "₹1999",
-  },
-  {
-    displayImage: "/products/product 2.jpg",
-    hoverImage: "/products/product 2.jpg",
-    title: "Gold Plated Earrings",
-    description: "Beautiful gold plated earrings with intricate designs.",
-    sellingPrice: "₹999",
-    costPrice: "₹1999",
-  },
-  {
-    displayImage: "/products/product 3.jpg",
-    hoverImage: "/products/product 3.jpg",
-    title: "Gold Plated Earrings",
-    description: "Beautiful gold plated earrings with intricate designs.",
-    sellingPrice: "₹999",
-    costPrice: "₹1999",
-  },
-  {
-    displayImage: "/products/product 4.jpg",
-    hoverImage: "/products/product 4.jpg",
-    title: "Gold Plated Earrings",
-    description: "Beautiful gold plated earrings with intricate designs.",
-    sellingPrice: "₹999",
-    costPrice: "₹1999",
-  },
-  {
-    displayImage: "/products/product 5.jpg",
-    hoverImage: "/products/product 5.jpg",
-    title: "Gold Plated Earrings",
-    description: "Beautiful gold plated earrings with intricate designs.",
-    sellingPrice: "₹999",
-    costPrice: "₹1999",
-  },
-  {
-    displayImage: "/products/product 6.jpg",
-    hoverImage: "/products/product 6.jpg",
-    title: "Gold Plated Earrings",
-    description: "Beautiful gold plated earrings with intricate designs.",
-    sellingPrice: "₹999",
-    costPrice: "₹1999",
-  },
+const latestProducts = [
+  "686e5bb3004bec6d1ff52bd2",
+  "686e24bfada7f55bb66b2b87",
+  "686e256bada7f55bb66b2b8d",
+  "686e2cfbada7f55bb66b2ba2",
+  "68696262ff3e25107864babf",
+  "6869653602e066e80189ef3c",
 ];
 
-const cartProducts = [
-  {
-    displayImage: "/products/product 1.jpg",
-    hoverImage: "/products/product 1.jpg",
-    title: "Gold Plated Earrings",
-    description: "Beautiful gold plated earrings with intricate designs.",
-    sellingPrice: "999",
-    costPrice: "1999",
-  },
-  {
-    displayImage: "/products/product 6.jpg",
-    hoverImage: "/products/product 6.jpg",
-    title: "Gold Plated Earrings",
-    description: "Beautiful gold plated earrings with intricate designs.",
-    sellingPrice: "999",
-    costPrice: "1999",
-  },
+const popularProducts = [
+  "68696262ff3e25107864babf",
+  "686e24bfada7f55bb66b2b87",
+  "6869653602e066e80189ef3c",
+  "686e2cfbada7f55bb66b2ba2",
+  "686e256bada7f55bb66b2b8d",
+  "686e5bb3004bec6d1ff52bd2",
 ];
 
 const homePageSections = [
@@ -114,4 +62,4 @@ const homePageSections = [
   },
 ];
 
-export { FAQs, products, cartProducts, homePageSections };
+export { FAQs, latestProducts, popularProducts, homePageSections };
