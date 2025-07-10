@@ -64,7 +64,7 @@ const Page = ({
                   alt="product image"
                   width={540}
                   height={540}
-                  className="object-contain aspect-square cursor-pointer size-16 lg:size-20"
+                  className="object-cover aspect-square cursor-pointer size-16 lg:size-20"
                   onMouseEnter={() => {
                     api?.scrollTo(index, true);
                   }}
@@ -89,7 +89,7 @@ const Page = ({
                       alt="product image"
                       width={540}
                       height={540}
-                      className="object-contain aspect-square size-full xl:w-[540px]"
+                      className="object-cover aspect-square size-full xl:w-[540px]"
                     />
                   </CarouselItem>
                 ))}

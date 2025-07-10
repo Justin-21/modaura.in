@@ -1,11 +1,5 @@
 "use client";
 
-import Image from "next/image";
-import logo from "@/public/logo-color.svg";
-import React, { useState } from "react";
-import { HiUser } from "react-icons/hi";
-import { LiaShoppingBagSolid } from "react-icons/lia";
-import { IoIosMenu } from "react-icons/io";
 import {
   Drawer,
   DrawerClose,
@@ -15,6 +9,11 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
+import logo from "@/public/logo-color.svg";
+import Image from "next/image";
+import { useState } from "react";
+import { HiUser } from "react-icons/hi";
+import { IoIosMenu } from "react-icons/io";
 
 import {
   Accordion,
@@ -22,10 +21,12 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import Link from "next/link";
+import { BsHandbagFill } from "react-icons/bs";
+import { FaInstagram, FaTwitter } from "react-icons/fa6";
 import { IoClose } from "react-icons/io5";
 import { Separator } from "../ui/separator";
-import Link from "next/link";
-import { FaInstagram, FaTwitter } from "react-icons/fa6";
+import useCartStore from "@/app/stores/useCartStore";
 
 const categoryList = [
   {
@@ -47,6 +48,8 @@ const categoryList = [
 ];
 
 const MobileNav = () => {
+  const { cart } = useCartStore();
+
   const [open, setOpen] = useState(false);
 
   const ScrollIntoView = (id: string) => {
@@ -66,7 +69,7 @@ const MobileNav = () => {
         <div className="w-1/3 relative flex items-center justify-start">
           <Drawer direction="left" open={open} onOpenChange={setOpen}>
             <DrawerTrigger>
-              <IoIosMenu className="size-4.5 text-darkTeal" />
+              <IoIosMenu className="size-5 text-darkTeal" />
             </DrawerTrigger>
             <DrawerContent className="bg-darkTeal text-ivory">
               <DrawerClose className="flex items-end justify-end pt-5 pr-5">
@@ -150,12 +153,15 @@ const MobileNav = () => {
         <div className="w-1/3 flex items-center justify-end">
           <ul className="flex gap-3 text-black-1 items-center justify-center *:cursor-pointer">
             <li>
-              <Link href="/cart">
-                <LiaShoppingBagSolid className="size-4.5 text-darkTeal" />
+              <Link href="/cart" className="relative">
+                <BsHandbagFill className="size-4.5 text-darkTeal" />
+                <span className="absolute -top-1 -right-1 text-[10px] leading-2.5 bg-roseGold rounded-full p-1 text-ivory">
+                  {cart.length}
+                </span>
               </Link>
             </li>
             <li>
-              <HiUser className="size-4.5 text-darkTeal" />
+              <HiUser className="size-5 text-darkTeal" />
             </li>
           </ul>
         </div>

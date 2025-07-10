@@ -8,6 +8,7 @@ import Link from "next/link";
 import { BiCart } from "react-icons/bi";
 import { IoMdHeartEmpty } from "react-icons/io";
 import CallToActionBtn from "../ui/callToActionBtn";
+import { toast } from "sonner";
 
 const ProductCard = ({ _id, name, price, images }: productTypes) => {
   const { addToCart } = useCartStore();
@@ -54,6 +55,7 @@ const ProductCard = ({ _id, name, price, images }: productTypes) => {
         text="Add to Cart"
         onClick={() => {
           addToCart(_id);
+          toast(`${name} is added to cart.`);
         }}
         className="w-full flex items-center justify-center gap-2 bg-darkTeal text-ivory rounded-lg lg:rounded-xl py-3 lg:py-3 lg:px-4 hover:opacity-90 transition-all duration-200 ease-in-out"
       >

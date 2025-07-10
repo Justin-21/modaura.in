@@ -10,10 +10,12 @@ import { IoIosArrowDown } from "react-icons/io";
 import { BsHandbagFill } from "react-icons/bs";
 // import { Separator } from "../ui/separator";
 import MobileNav from "./MobileNav";
+import useCartStore from "@/app/stores/useCartStore";
 
 const Navbar = () => {
   const hasWindow = typeof window !== "undefined";
   const [width, setWidth] = useState(hasWindow ? window.innerWidth : 768);
+  const { cart } = useCartStore();
 
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);
@@ -88,9 +90,12 @@ const Navbar = () => {
 
         <div className="w-1/3 flex items-center justify-end">
           <ul className="flex space-x-5 text-black-1 items-center justify-center *:cursor-pointer">
-            <li className="">
-              <Link href="/cart">
-                <BsHandbagFill className="size-auto lg:size-5 fill-darkTeal" />
+            <li className="h-fit w-fit font-medium">
+              <Link href="/cart" className="relative">
+                <BsHandbagFill className="size-auto lg:size-6 fill-darkTeal" />{" "}
+                <span className="absolute -top-1 -right-1 text-[10px] leading-2.5 bg-roseGold rounded-full p-1 text-ivory">
+                  {cart.length}
+                </span>
               </Link>
             </li>
 
@@ -98,7 +103,7 @@ const Navbar = () => {
               check for the current user from session in next-auth, if user is logged in, redirect to user profile else redirect to sign-in page
             */}
             <li className="">
-              <HiUser className="size-auto lg:size-6 fill-darkTeal" />
+              <HiUser className="size-auto lg:size-7 fill-darkTeal" />
             </li>
           </ul>
         </div>
